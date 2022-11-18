@@ -13,13 +13,14 @@ import Reviews from "../components/home/Reviews";
 import StartExploring from "../components/home/StartExploring";
 import Trending from "../components/home/Trending";
 import WorkProcedure from "../components/home/WorkProcedure";
+import ScrollToTop from "../components/ScrollToTop";
 import Title from "../components/Title";
 import Footer from "../shared/footer/Footer";
 import Navbar from "../shared/navbar/Navbar";
 
 const Home = () => {
   return (
-    <section>
+    <section id="home">
       <Title>Home</Title>
       <Navbar />
       <Banner />
@@ -39,6 +40,7 @@ const Home = () => {
       <Blogs />
       <Reviews />
       <Footer />
+      <ScrollToTop />
     </section>
   );
 };
