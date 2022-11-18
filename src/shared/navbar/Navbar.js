@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../components/Logo";
+import NavDropdown from "../../components/NavDropdown";
 import Cart from "./Cart";
 import Dropdown from "./Dropdown";
 import User from "./User";
 
-export const ItemContext = React.createContext(<></>);
+export const ItemContext = React.createContext([]);
 
 const Navbar = () => {
+  const [dropdownState, setDropdownState] = useState(false);
+  const [selectDropdownState, setSelectDropdownState] = useState("");
+
   const arrow = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,44 +30,39 @@ const Navbar = () => {
 
   const style = "flex justify-between lg:gap-x-2";
 
-  const items = (
-    <>
-      <li className="rounded-md">
-        <Link to="/">Home</Link>
-      </li>
-      <li className="rounded-md">
-        <Link to="/mens" className={style}>
-          Mens {arrow}
-        </Link>
-      </li>
-      <li className="rounded-md">
-        <Link to="/women" className={style}>
-          Women {arrow}
-        </Link>
-      </li>
-      <li className="rounded-md">
-        <Link to="/beauty" className={style}>
-          Beauty {arrow}
-        </Link>
-      </li>
-      <li className="rounded-md">
-        <Link to="/sports" className={style}>
-          Sports {arrow}
-        </Link>
-      </li>
-      <li className="rounded-md">
-        <Link to="/categories" className={style}>
-          Categories {arrow}
-        </Link>
-      </li>
-      <li className="rounded-md">
-        <Link to="/blogs">Blogs</Link>
-      </li>
-    </>
-  );
+  const items = [
+    {
+      title: "Mens",
+      anchor: "/mens",
+    },
+    {
+      title: "Women",
+      anchor: "/women",
+    },
+    {
+      title: "Beauty",
+      anchor: "/beauty",
+    },
+    {
+      title: "Sports",
+      anchor: "/sports",
+    },
+    {
+      title: "Categories",
+      anchor: "/categories",
+    },
+  ];
 
   return (
-    <ItemContext.Provider value={items}>
+    <ItemContext.Provider
+      value={{
+        items,
+        dropdownState,
+        setDropdownState,
+        selectDropdownState,
+        setSelectDropdownState,
+      }}
+    >
       <section className="bg-base-100 shadow fixed w-full z-50">
         <div className="navbar container mx-auto">
           <div className="navbar-start">
@@ -71,7 +70,23 @@ const Navbar = () => {
             <Logo />
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal p-0">{items}</ul>
+            <ul className="menu menu-horizontal p-0 relative">
+              {items.map((item, index) => (
+                <li key={index} className="rounded-md">
+                  <Link
+                    // to={item.anchor}
+                    className={style}
+                    onMouseEnter={() => {
+                      setDropdownState(true);
+                      setSelectDropdownState(item.title);
+                    }}
+                  >
+                    {item.title} {arrow}
+                  </Link>
+                </li>
+              ))}
+              {dropdownState && <NavDropdown />}
+            </ul>
           </div>
           <div className="navbar-end">
             <div className="flex gap-x-4 items-center">
