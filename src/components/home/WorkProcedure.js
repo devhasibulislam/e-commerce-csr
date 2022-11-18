@@ -40,6 +40,7 @@ const WorkProcedure = () => {
             <img
               src={procedure.image}
               alt={procedure.title}
+              loading="lazy"
               className="h-[140px] w-[140px] object-cover mx-auto"
             />
             <article className="flex flex-col gap-y-4 items-center">

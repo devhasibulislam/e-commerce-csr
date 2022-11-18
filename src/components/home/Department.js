@@ -79,6 +79,7 @@ const Department = () => {
             <img
               src={department.image}
               alt={department.title}
+              loading="lazy"
               style={{ backgroundColor: department.backgroundColor }}
               className="h-[300px] w-full object-contain rounded-lg"
             />

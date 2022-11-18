@@ -12,6 +12,7 @@ const ExploreCards = ({ category }) => {
         <img
           src={category.image}
           alt={category.title}
+          loading="lazy"
           className="w-[80px] h-[80px] object-cover rounded-full shadow-xl"
         />
         <span>{category.productCount} products</span>

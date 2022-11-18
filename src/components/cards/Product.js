@@ -7,6 +7,7 @@ const Product = ({ product }) => {
         <img
           src={product.thumbnail}
           alt={product.name}
+          loading="lazy"
           className="h-[300px] w-full object-cover rounded-xl"
         />
         <span

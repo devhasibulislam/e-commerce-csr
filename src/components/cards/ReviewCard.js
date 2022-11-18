@@ -17,6 +17,7 @@ const ReviewCard = ({ review }) => {
           <img
             alt="testimonial"
             src={review.user.avatar}
+            loading="lazy"
             class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
           />
           <span class="flex-grow flex flex-col pl-4">

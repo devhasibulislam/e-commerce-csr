@@ -8,13 +8,14 @@ const ExpertCard = ({ product }) => {
         <img
           src={product.images[0]}
           alt={product.title}
+          loading="lazy"
           className="bg-[#eef0f2] rounded-xl mx-auto h-[300px] w-full object-cover"
         />
         <div className="grid grid-cols-3 gap-x-4">
           {product.images.map(
             (image, index) =>
               index !== 0 && (
-                <img key={index} src={image} alt={product.title + index} />
+                <img key={index} src={image} alt={product.title + index} loading="lazy" />
               )
           )}
         </div>

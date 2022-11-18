@@ -8,6 +8,7 @@ const BlogCard = ({ blog }) => {
         class="relative z-10 object-cover w-full rounded-md h-96"
         src={blog.image}
         alt={blog.title}
+        loading="lazy"
       />
 
       <div class="relative z-20 max-w-lg p-6 mx-auto -mt-20 bg-white rounded-md shadow ">

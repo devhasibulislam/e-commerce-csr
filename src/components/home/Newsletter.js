@@ -26,7 +26,7 @@ const Newsletter = () => {
       <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-x-12 gap-y-8 items-center">
         <div className="flex flex-col gap-y-8">
           <Link to="/">
-            <img src="/logo.svg" alt="logo" width="112" />
+            <img src="/logo.svg" alt="logo" width="112" loading="lazy" />
           </Link>
           <h1 className="text-7xl font-extrabold">
             Don't miss out on special offers
@@ -78,6 +78,7 @@ const Newsletter = () => {
         <img
           src="/assets/newsletter.png"
           alt="newsletter"
+          loading="lazy"
           className="lg:scale-x-[1] scale-x-[-1] shadow rounded-3xl h-[500px] mx-auto object-cover"
         />
       </div>

@@ -8,6 +8,7 @@ const FormLogo = () => {
         src={"logo.svg"}
         height={39}
         width={128}
+        loading="lazy"
         alt="E-Commerce Logo"
         title="E-Commerce Logo"
         className="w-32 mx-auto object-cover"

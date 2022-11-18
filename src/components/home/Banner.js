@@ -91,6 +91,7 @@ const Banner = () => {
               alt={`slider${index + 1}`}
               height="500"
               width="500"
+              loading="lazy"
               className="object-contain"
             />
           </div>

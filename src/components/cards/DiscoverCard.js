@@ -22,7 +22,7 @@ const DiscoverCard = ({ item }) => {
           Show me all
         </Link>
       </article>
-      <img src={item.photo} alt={item.title} />
+      <img src={item.photo} alt={item.title} loading="lazy" />
     </section>
   );
 };
