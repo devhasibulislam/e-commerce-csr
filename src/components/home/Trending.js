@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
-import Product from "../Product";
+import Product from "../cards/Product";
 
 const Trending = () => {
   const [tabState, setTabState] = useState("All Items");

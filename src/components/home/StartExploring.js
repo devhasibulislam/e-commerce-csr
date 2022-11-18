@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ExploreCards from "./ExploreCard";
+import ExploreCards from "../cards/ExploreCard";
 
 const StartExploring = () => {
   const [tabState, setTabState] = useState("Women");

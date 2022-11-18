@@ -1,7 +1,7 @@
 import React from "react";
 import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
-import DiscoverCard from "./DiscoverCard";
+import DiscoverCard from "../cards/DiscoverCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 

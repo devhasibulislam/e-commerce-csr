@@ -1,7 +1,7 @@
 import React from "react";
 import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
-import ExpertCard from "./ExpertCard";
+import ExpertCard from "../cards/ExpertCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
