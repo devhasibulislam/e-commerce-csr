@@ -85,10 +85,10 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
+              {dropdownState && <NavDropdown />}
               <li className="rounded-md">
                 <Link to="/blogs">Blogs</Link>
               </li>
-              {dropdownState && <NavDropdown />}
             </ul>
           </div>
           <div className="navbar-end">
