@@ -44,7 +44,7 @@ const WorkProcedure = () => {
               className="h-[140px] w-[140px] object-cover mx-auto"
             />
             <article className="flex flex-col gap-y-4 items-center">
-              <p className="badge badge-primary text-white">
+              <p className="badge badge-primary text-white text-xl font-semibold">
                 {procedure.title}
               </p>
               <h2>{procedure.header}</h2>
