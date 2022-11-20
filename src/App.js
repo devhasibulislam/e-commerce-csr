@@ -1,5 +1,5 @@
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Blogs from "./pages/blogs/Blogs";
 import Categories from "./pages/categories/Categories";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -9,9 +9,22 @@ import Forgot from "./pages/profile/Forgot";
 import Profile from "./pages/profile/Profile";
 import Signin from "./pages/profile/Signin";
 import Signup from "./pages/profile/Signup";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
+import useMyself from "./utilities/useMyself";
+import Loading from "./shared/loading/Loading";
 
 function App() {
-  return (
+  const [user, loading] = useMyself(localStorage?.getItem("accessToken"));
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  return loading ? (
+    <Loading />
+  ) : (
     <div className="App">
       <Routes>
         {/* home */}
@@ -37,6 +50,20 @@ function App() {
         {/* not found */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      {/* alert toast */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
