@@ -10,4 +10,7 @@
  *
  * React Context Multiple Values Example
  * https://progressivewebninja.com/how-to-pass-multiple-values-in-react-context/
+ *
+ * How to refresh page with React Router?
+ * https://stackoverflow.com/questions/73218944/how-to-refresh-page-with-react-router
  */
