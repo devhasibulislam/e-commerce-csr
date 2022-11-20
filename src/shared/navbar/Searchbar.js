@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Searchbar = () => {
-  const [inputState, setInputState] = useState(false);
-
   return (
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle shadow">
