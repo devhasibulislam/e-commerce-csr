@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../components/Logo";
 import NavDropdown from "../../components/NavDropdown";
+import useMyself from "../../utilities/useMyself";
 import Cart from "./Cart";
 import Dropdown from "./Dropdown";
 import Searchbar from "./Searchbar";
@@ -12,6 +13,7 @@ export const ItemContext = React.createContext([]);
 const Navbar = () => {
   const [dropdownState, setDropdownState] = useState(false);
   const [selectDropdownState, setSelectDropdownState] = useState("");
+  const [user, loading] = useMyself(localStorage?.getItem("accessToken"));
 
   const arrow = (
     <svg
@@ -62,6 +64,8 @@ const Navbar = () => {
         setDropdownState,
         selectDropdownState,
         setSelectDropdownState,
+        user,
+        loading,
       }}
     >
       <section className="bg-base-100 shadow fixed w-full z-50">

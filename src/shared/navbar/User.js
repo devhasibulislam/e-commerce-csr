@@ -1,7 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ItemContext } from "./Navbar";
 
 const User = () => {
+  const { user, loading } = useContext(ItemContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   const items = [
     {
       title: "Dashboard",
@@ -134,59 +142,99 @@ const User = () => {
   return (
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar shadow">
-        <div className="w-10 rounded-full">
-          <img
-            src="https://placeimg.com/80/80/people"
-            alt="avatar"
-            loading="lazy"
-          />
-        </div>
+        {loading ? (
+          <div className="flex items-center justify-center ">
+            <div className="w-8 h-8 border-b-2 border-gray-900 rounded-full animate-spin"></div>
+          </div>
+        ) : (
+          <div className="w-10 rounded-full">
+            <img
+              src={
+                user?.avatar?.path
+                  ? user?.avatar?.path
+                  : "https://i.pinimg.com/564x/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.jpg"
+              }
+              alt={user?.avatar?.name ? user?.avatar?.name : "avatar"}
+              className="w-[80px] h-[80] object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
       </label>
       <ul
         tabIndex={0}
         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
       >
-        {items.map((item, index) => (
-          <li key={index} className="rounded-md">
-            <Link to={item.anchor} className={style}>
-              {item.icon} {item.title}
-            </Link>
-          </li>
-        ))}
-        <li>
-          <span className={style}>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+        {user?.name ? (
+          <>
+            {items.map((item, index) => (
+              <li key={index} className="rounded-md">
+                <Link to={item.anchor} className={style}>
+                  {item.icon} {item.title}
+                </Link>
+              </li>
+            ))}
+            <li
+              onClick={() => {
+                localStorage?.removeItem("accessToken");
+                navigate(0);
+              }}
             >
-              <path
-                d="M8.90002 7.55999C9.21002 3.95999 11.06 2.48999 15.11 2.48999H15.24C19.71 2.48999 21.5 4.27999 21.5 8.74999V15.27C21.5 19.74 19.71 21.53 15.24 21.53H15.11C11.09 21.53 9.24002 20.08 8.91002 16.54"
+              <span className={style}>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.90002 7.55999C9.21002 3.95999 11.06 2.48999 15.11 2.48999H15.24C19.71 2.48999 21.5 4.27999 21.5 8.74999V15.27C21.5 19.74 19.71 21.53 15.24 21.53H15.11C11.09 21.53 9.24002 20.08 8.91002 16.54"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M15 12H3.62"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M5.85 8.6499L2.5 11.9999L5.85 15.3499"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>{" "}
+                Logout
+              </span>
+            </li>
+          </>
+        ) : (
+          <li onClick={() => navigate("/sign-in")}>
+            <span className={style}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
                 stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-              <path
-                d="M15 12H3.62"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-              <path
-                d="M5.85 8.6499L2.5 11.9999L5.85 15.3499"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>{" "}
-            Logout
-          </span>
-        </li>
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                />
+              </svg>
+              Sign In
+            </span>
+          </li>
+        )}
       </ul>
     </div>
   );
