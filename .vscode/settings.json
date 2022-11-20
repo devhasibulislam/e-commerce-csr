@@ -7,7 +7,8 @@
     "Jost",
     "Signin",
     "swipeable",
-    "tailwindcss"
+    "tailwindcss",
+    "toastify"
   ],
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
