@@ -133,7 +133,7 @@ const User = () => {
 
   return (
     <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar shadow">
         <div className="w-10 rounded-full">
           <img
             src="https://placeimg.com/80/80/people"
