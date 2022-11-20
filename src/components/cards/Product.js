@@ -68,7 +68,7 @@ const Product = ({ product }) => {
           </p>
           <span
             className="tooltip tooltip-left tooltip-secondary shadow rounded-full"
-            data-tip="Brief overview"
+            data-tip="Add to cart"
           >
             <span className="btn btn-sm btn-primary text-white rounded-full">
               <svg
