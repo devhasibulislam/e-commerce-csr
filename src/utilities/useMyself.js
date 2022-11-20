@@ -7,7 +7,7 @@ function useMyself(token) {
   useEffect(() => {
     const getMyself = async () => {
       setLoading(true);
-      const request = await fetch(`http://localhost:8080/user/myself`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/myself`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${token}`,

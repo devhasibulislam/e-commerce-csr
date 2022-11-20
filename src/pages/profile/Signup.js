@@ -21,7 +21,7 @@ const Signup = () => {
 
     const uploadAvatar = async () => {
       setAvatarLoading(true);
-      const request = await fetch(`http://localhost:8080/user/avatar`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/avatar`, {
         method: "POST",
         body: formData,
       });
@@ -56,7 +56,7 @@ const Signup = () => {
 
     const signupUser = async () => {
       setUserLoading(true);
-      const request = await fetch(`http://localhost:8080/user/sign-up`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/sign-up`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
