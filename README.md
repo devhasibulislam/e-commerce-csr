@@ -5,30 +5,11 @@
 ## Technologies
 
 - Next.js
-- Tailwind CSS  
-
-# Server Side Rendering
-
-> Elaborate server side credentials with no brief
-
-## Technologies
-
-- Node.js
-- Express.js
-- Cors Policy
-- Bcrypt.js
-- Cloudinary
-- Dotenv
-- JWT
-- Mongoose
-- Multer.js
-- Nodemailer
-- Validator.js
+- Tailwind CSS
 
 # Deployment link
 
-- CSR link: https://ecommerce-se.vercel.app
-- SSR link: https://ecommerce-se.onrender.com
+- CSR link: https://e-commerce-csr.vercel.app
 - Repo link: https://github.com/hasibulislam999/e-commerce
 
 # Contributors
@@ -40,11 +21,11 @@
 
 # Make it own
 
-> Make sure have install `VSCODE` editor and proper configuration of `.env` file
+> Make sure have install `VSCODE` editor
 
 ```bash
-git clone -b master https://github.com/hasibulislam999/e-commerce.git
-cd e-commerce
+https://github.com/hasibulislam999/e-commerce-csr.git
+cd e-commerce-csr
 npm install --force
 npm start
 ```
