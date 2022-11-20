@@ -4,6 +4,7 @@ import Logo from "../../components/Logo";
 import NavDropdown from "../../components/NavDropdown";
 import Cart from "./Cart";
 import Dropdown from "./Dropdown";
+import Searchbar from "./Searchbar";
 import User from "./User";
 
 export const ItemContext = React.createContext([]);
@@ -93,6 +94,7 @@ const Navbar = () => {
           </div>
           <div className="navbar-end">
             <div className="flex gap-x-4 items-center">
+              <Searchbar />
               <Cart />
               <User />
             </div>
