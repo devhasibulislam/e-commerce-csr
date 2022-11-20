@@ -1,11 +1,9 @@
 import React from "react";
-import Searchbar from "./Searchbar";
 
 const Cart = () => {
   return (
     <div className="dropdown dropdown-end">
-      <Searchbar />
-      <label tabIndex={0} className="btn btn-ghost btn-circle">
+      <label tabIndex={0} className="btn btn-ghost btn-circle shadow">
         <div className="indicator">
           <svg
             class="w-6 h-6"
