@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import LazyLoading from "../loading/LazyLoading";
 import { ItemContext } from "./Navbar";
 
 const User = () => {
@@ -143,9 +144,7 @@ const User = () => {
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar shadow">
         {loading ? (
-          <div className="flex items-center justify-center ">
-            <div className="w-8 h-8 border-b-2 border-gray-900 rounded-full animate-spin"></div>
-          </div>
+          <LazyLoading />
         ) : (
           <div className="w-10 rounded-full">
             <img
