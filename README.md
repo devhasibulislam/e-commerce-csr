@@ -1,10 +1,11 @@
 # Client Side Rendering
 
-> Elaborate client side credentials with no brief
+> An electronic commerce or internet commerce which refers to the buying and selling of goods or services using the internet, and the transfer of money and data to execute these transactions throughout multi-vendor.
 
 ## Technologies
 
-- Next.js
+- React.js
+- React Router DOM
 - Tailwind CSS
 
 # Deployment link
@@ -12,7 +13,7 @@
 ## Frontend
 
 - CSR link: https://e-commerce-csr.vercel.app
-- https://github.com/hasibulislam999/e-commerce-csr
+- Repo link: https://github.com/hasibulislam999/e-commerce-csr
 
 ## Backend
 
