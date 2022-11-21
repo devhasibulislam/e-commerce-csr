@@ -6,7 +6,9 @@ import { ItemContext } from "./Navbar";
 const Dropdown = () => {
   const { items, dropdownState, setDropdownState, setSelectDropdownState } =
     useContext(ItemContext);
+
   const style = "flex justify-between lg:gap-x-2";
+
   const arrow = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
