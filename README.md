@@ -4,7 +4,8 @@
 
 ## Technologies
 
-- Next.js
+- React.js
+- React Router DOM
 - Tailwind CSS
 
 # Deployment link
