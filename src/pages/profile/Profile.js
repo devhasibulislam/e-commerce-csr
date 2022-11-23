@@ -30,6 +30,13 @@ const Profile = () => {
       ) : (
         <SecondaryContainer>
           <div className="flex flex-col gap-y-8">
+            <div className="text-sm breadcrumbs">
+              <ul>
+                <li>Home</li>
+                <li>My Profile</li>
+                <li>{tabState}</li>
+              </ul>
+            </div>
             <h1 className="text-6xl underline font-medium">Account</h1>
             <h2 className="text-5xl">
               Welcome,{" "}
