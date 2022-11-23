@@ -69,7 +69,7 @@ const User = () => {
       ),
     },
     {
-      title: "Profile",
+      title: "My Profile",
       anchor: "/profile",
       icon: (
         <svg
