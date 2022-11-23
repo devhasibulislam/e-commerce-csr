@@ -15,6 +15,7 @@ import "./App.css";
 import useMyself from "./utilities/useMyself";
 import Loading from "./shared/loading/Loading";
 import RequireAuth from "./components/profile/RequireAuth";
+import MyOrder from "./pages/MyOrder";
 
 export const UserContext = React.createContext({});
 
@@ -52,6 +53,16 @@ function App() {
             element={
               <RequireAuth>
                 <Profile />
+              </RequireAuth>
+            }
+          />
+
+          {/* my orders */}
+          <Route
+            path="my-orders"
+            element={
+              <RequireAuth>
+                <MyOrder />
               </RequireAuth>
             }
           />
