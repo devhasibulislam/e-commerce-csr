@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "../../components/Title";
 import FormLogo from "../../components/profile/FormLogo";
 import AccountBanner from "../../components/profile/AccountBanner";
@@ -19,7 +19,9 @@ const Signup = () => {
 
   let from = location.state?.from?.pathname || "/";
 
-  if (user) navigate(from, { replace: true });
+  useEffect(() => {
+    if (user) navigate(from, { replace: true });
+  }, [from, navigate, user]);
 
   // upload avatar
   function handleUserAvatar(event) {

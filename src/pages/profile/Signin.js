@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FormLogo from "../../components/profile/FormLogo";
 import Title from "../../components/Title";
 import AccountButton from "../../components/profile/AccountButton";
@@ -16,7 +16,9 @@ const Signin = () => {
 
   let from = location.state?.from?.pathname || "/";
 
-  if (user) navigate(from, { replace: true });
+  useEffect(() => {
+    if (user) navigate(from, { replace: true });
+  }, [from, navigate, user]);
 
   function handleSigninForm(event) {
     event.preventDefault();
@@ -28,13 +30,16 @@ const Signin = () => {
 
     const signinUser = async () => {
       setLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/sign-in`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(userInformation),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/user/sign-in`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInformation),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         localStorage.setItem("accessToken", response.accessToken);
