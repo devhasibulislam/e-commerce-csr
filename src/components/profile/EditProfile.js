@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { UserContext } from "../../pages/profile/Profile";
+import { UserContext } from "../../App";
 import SmallLoading from "../../shared/loading/SmallLoading";
 import TinyLoading from "../../shared/loading/TinyLoading";
 import AccountButton from "./AccountButton";
@@ -29,9 +29,6 @@ const EditProfile = () => {
     setRole(user?.role);
     setStatus(user?.status);
 
-    // console.log(new Date(user?.dateOfBirth).getUTCDate()); // date
-    // console.log(new Date(user?.dateOfBirth).getUTCMonth() + 1); // month
-    // console.log(new Date(user?.dateOfBirth).getUTCFullYear()); // year
     setDateState(
       new Date(user?.dateOfBirth)?.getUTCDate() +
         "/" +
@@ -40,8 +37,6 @@ const EditProfile = () => {
         new Date(user?.dateOfBirth)?.getUTCFullYear()
     );
   }, [user]);
-
-  console.log(dateState);
 
   // update avatar
   function handleUpdateUserAvatar(event) {
