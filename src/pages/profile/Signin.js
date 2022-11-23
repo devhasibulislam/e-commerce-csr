@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FormLogo from "../../components/profile/FormLogo";
 import Title from "../../components/Title";
 import AccountButton from "../../components/profile/AccountButton";
 import AccountBanner from "../../components/profile/AccountBanner";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Loading from "../../shared/loading/Loading";
+import { UserContext } from "../../App";
+import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
+  const { user, loading: userLoading } = useContext(UserContext);
   const navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
+  if (user) navigate(from, { replace: true });
 
   function handleSigninForm(event) {
     event.preventDefault();
@@ -35,7 +42,7 @@ const Signin = () => {
         setLoading(false);
         event.target.reset();
         setTimeout(() => {
-          navigate("/");
+          navigate(0);
         }, 2000);
       } else {
         setLoading(false);
@@ -59,8 +66,8 @@ const Signin = () => {
             </h1>
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
-                {loading ? (
-                  <Loading />
+                {loading || userLoading ? (
+                  <SmallLoading />
                 ) : (
                   <form
                     className="flex flex-col gap-y-4"

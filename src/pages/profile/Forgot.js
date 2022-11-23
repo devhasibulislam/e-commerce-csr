@@ -1,15 +1,22 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { UserContext } from "../../App";
 import AccountBanner from "../../components/profile/AccountBanner";
 import AccountButton from "../../components/profile/AccountButton";
 import FormLogo from "../../components/profile/FormLogo";
 import Title from "../../components/Title";
-import Loading from "../../shared/loading/Loading";
+import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Forgot = () => {
   const [loading, setLoading] = useState(false);
+  const { user, loading: userLoading } = useContext(UserContext);
   const navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
+  if (user) navigate(from, { replace: true });
 
   function handleResetPassword(event) {
     event.preventDefault();
@@ -58,8 +65,8 @@ const Forgot = () => {
             </h1>
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
-                {loading ? (
-                  <Loading />
+                {loading || userLoading ? (
+                  <SmallLoading />
                 ) : (
                   <form
                     className="flex flex-col gap-y-4"

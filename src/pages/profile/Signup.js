@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Title from "../../components/Title";
 import FormLogo from "../../components/profile/FormLogo";
 import AccountBanner from "../../components/profile/AccountBanner";
 import AccountButton from "../../components/profile/AccountButton";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import TinyLoading from "../../shared/loading/TinyLoading";
 import SmallLoading from "../../shared/loading/SmallLoading";
+import { UserContext } from "../../App";
 
 const Signup = () => {
   const [avatarLoading, setAvatarLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
   const [avatar, setAvatar] = useState(null);
+  const { user, loading: usrLoading } = useContext(UserContext);
   const navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
+  if (user) navigate(from, { replace: true });
 
   // upload avatar
   function handleUserAvatar(event) {
@@ -93,7 +100,7 @@ const Signup = () => {
             </h1>
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
-                {userLoading ? (
+                {userLoading || usrLoading ? (
                   <SmallLoading />
                 ) : (
                   <form
