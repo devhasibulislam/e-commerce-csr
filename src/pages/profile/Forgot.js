@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../App";
@@ -16,9 +16,7 @@ const Forgot = () => {
 
   let from = location.state?.from?.pathname || "/";
 
-  useEffect(() => {
-    if (user) navigate(from, { replace: true });
-  }, [from, navigate, user]);
+  if (user) navigate(from, { replace: true });
 
   function handleResetPassword(event) {
     event.preventDefault();
@@ -30,16 +28,13 @@ const Forgot = () => {
 
     const resetPassword = async () => {
       setLoading(true);
-      const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/user/reset-password`,
-        {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(userInformation),
-        }
-      );
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/reset-password`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInformation),
+      });
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
