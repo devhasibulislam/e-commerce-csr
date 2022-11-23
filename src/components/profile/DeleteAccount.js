@@ -17,7 +17,7 @@ const DeleteAccount = () => {
     const deleteUser = async () => {
       setLoading(true);
       const request = await fetch(
-        `http://localhost:8080/user/remove-user?id=${user._id}`,
+        `https://e-commerce-ssr.onrender.com/user/remove-user?id=${user._id}`,
         {
           method: "DELETE",
           headers: {

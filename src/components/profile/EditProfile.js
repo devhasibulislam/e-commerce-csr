@@ -81,8 +81,6 @@ const EditProfile = () => {
       status: event.target.status.value,
     };
 
-    console.log(event.target.dob.value);
-
     const signupUser = async () => {
       setUserLoading(true);
       const request = await fetch(
@@ -415,7 +413,7 @@ const EditProfile = () => {
           <AccountButton value={"Update info"} />
         </form>
       )}
-      <div></div>
+      <div />
     </section>
   );
 };

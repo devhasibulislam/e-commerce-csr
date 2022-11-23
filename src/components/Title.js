@@ -5,7 +5,7 @@ const Title = ({ children }) => {
   return (
     <>
       <Helmet>
-        <title>{children} | Ciseco</title>
+        <title>{children} | Canim</title>
       </Helmet>
     </>
   );

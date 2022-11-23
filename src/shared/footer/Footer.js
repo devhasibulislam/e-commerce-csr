@@ -12,7 +12,7 @@ const Footer = () => {
         <div>
           <Logo />
           <p className="font-medium">
-            Ciseco | E-Commerce Ltd.
+            Canim Ltd.
             <br />
             Providing reliable services since 2021 to {year}
           </p>

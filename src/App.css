@@ -4,6 +4,11 @@ img {
   max-width: 100%;
 }
 
+::selection{
+  color: white;
+  background-color: black;
+}
+
 .App {
   font-family: "Jost", sans-serif;
 }

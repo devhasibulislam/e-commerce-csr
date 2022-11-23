@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../App";
 import SecondaryContainer from "../../components/container/SecondaryContainer";
+import ChangePassword from "../../components/profile/ChangePassword";
+import DeleteAccount from "../../components/profile/DeleteAccount";
 import EditProfile from "../../components/profile/EditProfile";
 import Title from "../../components/Title";
 import Footer from "../../shared/footer/Footer";
@@ -13,7 +15,7 @@ const Profile = () => {
 
   const tabs = [
     "Account info",
-    "Saved lists",
+    "My Wishlists",
     "Change password",
     "Change billing",
     "Delete account",
@@ -49,10 +51,10 @@ const Profile = () => {
           </div>
 
           {tabState === "Account info" && <EditProfile />}
-          {tabState === "Saved lists" && <>Saved lists</>}
-          {tabState === "Change password" && <>Change password</>}
+          {tabState === "My Wishlists" && <>My Wishlists</>}
+          {tabState === "Change password" && <ChangePassword />}
           {tabState === "Change billing" && <>Change billing</>}
-          {tabState === "Delete account" && <>Delete account</>}
+          {tabState === "Delete account" && <DeleteAccount />}
         </SecondaryContainer>
       )}
       <Footer />
