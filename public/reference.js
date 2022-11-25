@@ -13,4 +13,10 @@
  *
  * How to refresh page with React Router?
  * https://stackoverflow.com/questions/73218944/how-to-refresh-page-with-react-router
+ *
+ * Store name suggestions
+ * https://namesbee.com/store-names/
+ *
+ * Populate multiple fields
+ * https://stackoverflow.com/questions/12821596/multiple-populates-mongoosejs
  */
