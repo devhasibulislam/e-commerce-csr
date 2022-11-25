@@ -9,7 +9,7 @@ const ChangePassword = () => {
   const [loading, setLoading] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const { user, loading: userLoading } = useContext(UserContext);
+  const user = useContext(UserContext);
 
   function handleChangePassword(event) {
     event.preventDefault();
@@ -48,7 +48,7 @@ const ChangePassword = () => {
   return (
     <section className="grid lg:grid-cols-2 grid-cols-1">
       <>
-        {userLoading || loading ? (
+        {loading ? (
           <SmallLoading />
         ) : (
           successfulState === false && (

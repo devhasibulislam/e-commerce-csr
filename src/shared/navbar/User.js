@@ -7,10 +7,6 @@ const User = () => {
   const { user, loading } = useContext(ItemContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   const items = [
     {
       title: "Dashboard",
@@ -149,8 +145,8 @@ const User = () => {
           <div className="w-10 rounded-full">
             <img
               src={
-                user?.avatar?.path
-                  ? user?.avatar?.path
+                user?.avatar?.url
+                  ? user?.avatar?.url
                   : "https://i.pinimg.com/564x/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.jpg"
               }
               alt={user?.avatar?.name ? user?.avatar?.name : "avatar"}

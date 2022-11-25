@@ -3,7 +3,7 @@ import Title from "../../components/Title";
 import FormLogo from "../../components/profile/FormLogo";
 import AccountBanner from "../../components/profile/AccountBanner";
 import AccountButton from "../../components/profile/AccountButton";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import TinyLoading from "../../shared/loading/TinyLoading";
 import SmallLoading from "../../shared/loading/SmallLoading";
@@ -13,13 +13,10 @@ const Signup = () => {
   const [avatarLoading, setAvatarLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
   const [avatar, setAvatar] = useState(null);
-  const { user, loading: usrLoading } = useContext(UserContext);
+  const user = useContext(UserContext);
   const navigate = useNavigate();
-  let location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
-
-  if (user) navigate(from, { replace: true });
+  if (Object.keys(user).length !== 0) navigate("/");
 
   // upload avatar
   function handleUserAvatar(event) {
@@ -28,16 +25,19 @@ const Signup = () => {
 
     const uploadAvatar = async () => {
       setAvatarLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/avatar`, {
-        method: "POST",
-        body: formData,
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/user/avatar`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
         setAvatarLoading(false);
         setAvatar({
-          path: response.data.path,
+          url: response.data.path,
           name: response.data.filename,
         });
       } else {
@@ -63,13 +63,16 @@ const Signup = () => {
 
     const signupUser = async () => {
       setUserLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/sign-up`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(userInformation),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/user/sign-up`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInformation),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -100,7 +103,7 @@ const Signup = () => {
             </h1>
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
-                {userLoading || usrLoading ? (
+                {userLoading ? (
                   <SmallLoading />
                 ) : (
                   <form
@@ -199,7 +202,7 @@ const Signup = () => {
                     ) : (
                       <div className="flex gap-x-2">
                         <img
-                          src={avatar.path}
+                          src={avatar.url}
                           alt={avatar.name}
                           height={70}
                           width={70}

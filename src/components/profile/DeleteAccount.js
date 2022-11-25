@@ -8,7 +8,7 @@ import AccountButton from "./AccountButton";
 const DeleteAccount = () => {
   const [removeStatement, setRemoveStatement] = useState("");
   const [loading, setLoading] = useState(false);
-  const { user, loading: userLoading } = useContext(UserContext);
+  const user = useContext(UserContext);
   const navigate = useNavigate();
 
   function handleRemoveAccount(event) {
@@ -41,7 +41,7 @@ const DeleteAccount = () => {
   return (
     <section className="grid lg:grid-cols-2 grid-cols-1">
       <div className="flex flex-col gap-y-4">
-        {userLoading || loading ? (
+        {loading ? (
           <SmallLoading />
         ) : (
           <form onSubmit={handleRemoveAccount}>

@@ -10,7 +10,7 @@ import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
-  const { user, loading: userLoading } = useContext(UserContext);
+  const user = useContext(UserContext);
   const navigate = useNavigate();
   let location = useLocation();
 
@@ -66,7 +66,7 @@ const Signin = () => {
             </h1>
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
-                {loading || userLoading ? (
+                {loading ? (
                   <SmallLoading />
                 ) : (
                   <form

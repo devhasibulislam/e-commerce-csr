@@ -10,13 +10,10 @@ import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Forgot = () => {
   const [loading, setLoading] = useState(false);
-  const { user, loading: userLoading } = useContext(UserContext);
+  const user = useContext(UserContext);
   const navigate = useNavigate();
-  let location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
-
-  if (user) navigate(from, { replace: true });
+  if (Object.keys(user).length !== 0) navigate("/");
 
   function handleResetPassword(event) {
     event.preventDefault();
@@ -28,13 +25,16 @@ const Forgot = () => {
 
     const resetPassword = async () => {
       setLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/reset-password`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(userInformation),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/user/reset-password`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInformation),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -65,7 +65,7 @@ const Forgot = () => {
             </h1>
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
-                {loading || userLoading ? (
+                {loading ? (
                   <SmallLoading />
                 ) : (
                   <form

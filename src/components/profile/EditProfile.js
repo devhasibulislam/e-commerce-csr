@@ -6,7 +6,7 @@ import TinyLoading from "../../shared/loading/TinyLoading";
 import AccountButton from "./AccountButton";
 
 const EditProfile = () => {
-  const { user, loading } = useContext(UserContext);
+  const user = useContext(UserContext);
   const [avatarLoading, setAvatarLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
   const [avatar, setAvatar] = useState(null);
@@ -57,7 +57,7 @@ const EditProfile = () => {
         toast.success(response.description);
         setAvatarLoading(false);
         setAvatar({
-          path: response.data.path,
+          url: response.data.path,
           name: response.data.filename,
         });
       } else {
@@ -109,7 +109,7 @@ const EditProfile = () => {
 
   return (
     <section className="grid lg:grid-cols-2 grid-cols-1">
-      {loading || userLoading ? (
+      {userLoading ? (
         <SmallLoading />
       ) : (
         <form
@@ -395,7 +395,7 @@ const EditProfile = () => {
           ) : (
             <div className="flex gap-x-2">
               <img
-                src={avatar.path}
+                src={avatar.url}
                 alt={avatar.name}
                 height={70}
                 width={70}

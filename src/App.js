@@ -25,7 +25,7 @@ function App() {
   return loading ? (
     <Loading />
   ) : (
-    <UserContext.Provider value={{ user, loading }}>
+    <UserContext.Provider value={user}>
       <div className="App">
         <Routes>
           {/* home */}
