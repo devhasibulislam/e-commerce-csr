@@ -19,4 +19,7 @@
  *
  * Populate multiple fields
  * https://stackoverflow.com/questions/12821596/multiple-populates-mongoosejs
+ *
+ * TypeError: split is not a function in JavaScript
+ * https://bobbyhadz.com/blog/javascript-typeerror-string-split-is-not-a-function#:~:text=The%20%22split%20is%20not%20a,the%20split%20method%20on%20strings.
  */
