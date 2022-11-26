@@ -18,9 +18,6 @@ const EditProfile = () => {
   const [address, setAddress] = useState("");
   const [role, setRole] = useState("");
   const [status, setStatus] = useState("");
-  const [dateState, setDateState] = useState("");
-
-  console.log(dob);
 
   useEffect(() => {
     setName(user?.name);
@@ -30,14 +27,6 @@ const EditProfile = () => {
     setAddress(user?.shippingAddress || "Your address");
     setRole(user?.role);
     setStatus(user?.status);
-
-    setDateState(
-      new Date(user?.dateOfBirth)?.getUTCDate() +
-        "/" +
-        (new Date(user?.dateOfBirth)?.getUTCMonth() + 1) +
-        "/" +
-        new Date(user?.dateOfBirth)?.getUTCFullYear()
-    );
   }, [user]);
 
   // update avatar
@@ -72,13 +61,15 @@ const EditProfile = () => {
   function handleUpdateProfileInfo(event) {
     event.preventDefault();
 
+    const address = event.target.address.value;
+
     const userInfo = {
       name: event.target.name.value,
       email: event.target.email.value,
       avatar: avatar === null ? user?.avatar : avatar,
       dateOfBirth: event.target.dob.value,
       phone: event.target.phone.value,
-      shippingAddress: event.target.address.value,
+      shippingAddress: address === "Your address" ? undefined : address,
       role: event.target.role.value,
       status: event.target.status.value,
     };
