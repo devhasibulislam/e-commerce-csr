@@ -187,7 +187,7 @@ const EditProfile = () => {
           <div className="form-control">
             <label className="label">
               <span className="label-text">
-                Your Date of Birth ({dateState})
+                Your Date of Birth ({dob?.toString()?.split("T")[0]})
               </span>
             </label>
             <label className="input-group">
@@ -210,7 +210,7 @@ const EditProfile = () => {
               <input
                 type="date"
                 name="dob"
-                value={dob}
+                value={dob?.toString()?.split("T")[0]}
                 onChange={(event) => setDOB(event.target.value)}
                 className="input input-bordered w-full"
               />
