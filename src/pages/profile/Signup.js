@@ -25,20 +25,17 @@ const Signup = () => {
 
     const uploadAvatar = async () => {
       setAvatarLoading(true);
-      const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/user/avatar`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const request = await fetch(`http://localhost:8080/user/avatar`, {
+        method: "POST",
+        body: formData,
+      });
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
         setAvatarLoading(false);
         setAvatar({
           url: response.data.path,
-          name: response.data.filename,
+          public_id: response.data.filename,
         });
       } else {
         toast.error(response.description);
@@ -63,16 +60,13 @@ const Signup = () => {
 
     const signupUser = async () => {
       setUserLoading(true);
-      const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/user/sign-up`,
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(userInformation),
-        }
-      );
+      const request = await fetch(`http://localhost:8080/user/sign-up`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInformation),
+      });
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -203,13 +197,13 @@ const Signup = () => {
                       <div className="flex gap-x-2">
                         <img
                           src={avatar.url}
-                          alt={avatar.name}
+                          alt={avatar.public_id}
                           height={70}
                           width={70}
                           className="object-cover rounded shadow"
                         />
                         <p className="text-sm font-medium flex flex-col">
-                          {avatar.name.split("/")[1].split("_")[1]}
+                          {avatar.public_id.split("/")[1].split("_")[1]}
                           <span className="bg-green-500 w-fit px-2 rounded-xl text-white">
                             Avatar Uploaded
                           </span>

@@ -22,7 +22,7 @@ const ChangePassword = () => {
     const resetPassword = async () => {
       setLoading(true);
       const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/user/reset-password`,
+        `http://localhost:8080/user/reset-password`,
         {
           method: "PATCH",
           headers: {

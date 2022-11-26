@@ -28,7 +28,7 @@ const Signin = () => {
 
     const signinUser = async () => {
       setLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/sign-in`, {
+      const request = await fetch(`http://localhost:8080/user/sign-in`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

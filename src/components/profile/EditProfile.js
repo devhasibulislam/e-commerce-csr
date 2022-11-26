@@ -20,10 +20,12 @@ const EditProfile = () => {
   const [status, setStatus] = useState("");
   const [dateState, setDateState] = useState("");
 
+  console.log(dob);
+
   useEffect(() => {
     setName(user?.name);
     setEmail(user?.email);
-    setDOB(user?.dateOfBirth);
+    setDOB(user?.dateOfBirth || user?.dateOfBirth?.split("T")[0]);
     setPhone(user?.phone);
     setAddress(user?.shippingAddress || "Your address");
     setRole(user?.role);
@@ -46,7 +48,7 @@ const EditProfile = () => {
     const uploadAvatar = async () => {
       setAvatarLoading(true);
       const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/user/avatar?filename=${user.avatar.name}`,
+        `http://localhost:8080/user/avatar?public_id=${user.avatar.public_id}`,
         {
           method: "PATCH",
           body: formData,
@@ -58,7 +60,7 @@ const EditProfile = () => {
         setAvatarLoading(false);
         setAvatar({
           url: response.data.path,
-          name: response.data.filename,
+          public_id: response.data.filename,
         });
       } else {
         toast.error(response.description);
@@ -84,7 +86,7 @@ const EditProfile = () => {
     const signupUser = async () => {
       setUserLoading(true);
       const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/user/update-user?email=${user?.email}`,
+        `http://localhost:8080/user/update-user?email=${user?.email}`,
         {
           method: "PATCH",
           headers: {
@@ -396,13 +398,13 @@ const EditProfile = () => {
             <div className="flex gap-x-2">
               <img
                 src={avatar.url}
-                alt={avatar.name}
+                alt={avatar.public_id}
                 height={70}
                 width={70}
                 className="object-cover rounded shadow"
               />
               <p className="text-sm font-medium flex flex-col">
-                {avatar.name.split("/")[1].split("_")[1]}
+                {avatar.public_id.split("/")[1].split("_")[1]}
                 <span className="bg-green-500 w-fit px-2 rounded-xl text-white">
                   Avatar Uploaded
                 </span>
