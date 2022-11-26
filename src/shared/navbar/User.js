@@ -149,7 +149,7 @@ const User = () => {
                   ? user?.avatar?.url
                   : "https://i.pinimg.com/564x/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.jpg"
               }
-              alt={user?.avatar?.name ? user?.avatar?.name : "avatar"}
+              alt={user?.avatar?.public_id ? user?.avatar?.public_id : "avatar"}
               className="w-[80px] h-[80] object-cover"
               loading="lazy"
             />
