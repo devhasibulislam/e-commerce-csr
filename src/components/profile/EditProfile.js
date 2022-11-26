@@ -48,7 +48,7 @@ const EditProfile = () => {
     const uploadAvatar = async () => {
       setAvatarLoading(true);
       const request = await fetch(
-        `http://localhost:8080/user/avatar?public_id=${user.avatar.public_id}`,
+        `https://e-commerce-ssr.onrender.com/user/avatar?public_id=${user.avatar.public_id}`,
         {
           method: "PATCH",
           body: formData,
@@ -86,7 +86,7 @@ const EditProfile = () => {
     const signupUser = async () => {
       setUserLoading(true);
       const request = await fetch(
-        `http://localhost:8080/user/update-user?email=${user?.email}`,
+        `https://e-commerce-ssr.onrender.com/user/update-user?email=${user?.email}`,
         {
           method: "PATCH",
           headers: {
