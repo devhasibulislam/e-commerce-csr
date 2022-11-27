@@ -35,24 +35,19 @@ const Navbar = () => {
 
   const items = [
     {
-      title: "Mens",
-      anchor: "/mens",
-    },
-    {
-      title: "Women",
-      anchor: "/women",
-    },
-    {
-      title: "Beauty",
-      anchor: "/beauty",
-    },
-    {
-      title: "Sports",
-      anchor: "/sports",
-    },
-    {
       title: "Categories",
-      anchor: "/categories",
+      // anchor: "/categories",
+      subItems: true,
+    },
+    {
+      title: "Blogs",
+      anchor: "/blogs",
+      subItems: false,
+    },
+    {
+      title: "Contact us",
+      anchor: "/contact-us",
+      subItems: false,
     },
   ];
 
@@ -77,23 +72,22 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0 relative">
               {items.map((item, index) => (
-                <li key={index} className="rounded-md">
-                  <Link
-                    // to={item.anchor}
-                    className={style}
-                    onMouseEnter={() => {
-                      setDropdownState(true);
-                      setSelectDropdownState(item.title);
-                    }}
-                  >
-                    {item.title} {arrow}
-                  </Link>
-                </li>
+                <>
+                  <li key={index} className="rounded-md">
+                    <Link
+                      to={item?.anchor}
+                      className={style}
+                      onMouseEnter={() => {
+                        item.subItems === true && setDropdownState(true);
+                        setSelectDropdownState(item.title);
+                      }}
+                    >
+                      {item.title} {item.subItems === true && arrow}
+                    </Link>
+                  </li>
+                  {dropdownState && <NavDropdown />}
+                </>
               ))}
-              {dropdownState && <NavDropdown />}
-              <li className="rounded-md">
-                <Link to="/blogs">Blogs</Link>
-              </li>
             </ul>
           </div>
           <div className="navbar-end">

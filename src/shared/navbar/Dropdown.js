@@ -48,23 +48,22 @@ const Dropdown = () => {
         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 relative"
       >
         {items.map((item, index) => (
-          <li key={index} className="rounded-md">
-            <Link
-              // to={item.anchor}
-              className={style}
-              onMouseEnter={() => {
-                setDropdownState(true);
-                setSelectDropdownState(item.title);
-              }}
-            >
-              {item.title} {arrow}
-            </Link>
-          </li>
+          <>
+            <li key={index} className="rounded-md">
+              <Link
+                to={item?.anchor}
+                className={style}
+                onMouseEnter={() => {
+                  item.subItems === true && setDropdownState(true);
+                  setSelectDropdownState(item.title);
+                }}
+              >
+                {item.title} {item.subItems === true && arrow}
+              </Link>
+            </li>
+            {dropdownState && <NavDropdown />}
+          </>
         ))}
-        <li className="rounded-md">
-          <Link to="/blogs">Blogs</Link>
-        </li>
-        {dropdownState && <NavDropdown />}
       </ul>
     </div>
   );
