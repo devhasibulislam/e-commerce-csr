@@ -16,6 +16,9 @@ import useMyself from "./utilities/useMyself";
 import Loading from "./shared/loading/Loading";
 import RequireAuth from "./components/profile/RequireAuth";
 import MyOrder from "./pages/MyOrder";
+import Analytics from "./pages/dashboard/Analytics";
+import AddNewProduct from "./pages/dashboard/products/AddNewProduct";
+import ManageProducts from "./pages/dashboard/products/ManageProducts";
 
 export const UserContext = React.createContext({});
 
@@ -39,7 +42,11 @@ function App() {
                 <Dashboard />
               </RequireAuth>
             }
-          />
+          >
+            <Route index element={<Analytics />} />
+            <Route path="add-new-product" element={<AddNewProduct />} />
+            <Route path="manage-products" element={<ManageProducts />} />
+          </Route>
 
           {/* categories */}
           <Route path="/categories" element={<Categories />} />
