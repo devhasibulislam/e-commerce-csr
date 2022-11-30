@@ -14,7 +14,7 @@ const Product = ({ product }) => {
           className="tooltip tooltip-left tooltip-secondary absolute top-0 right-0 shadow rounded-full"
           data-tip="Brief overview"
         >
-          <span className="btn btn-sm btn-ghost rounded-full">
+          <span className="btn btn-sm btn-ghost btn-circle rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -37,7 +37,7 @@ const Product = ({ product }) => {
         </h2>
         <p className="flex items-center gap-x-2">
           Category:{" "}
-          <span className="badge badge-outline badge-primary">
+          <span className="badge badge-outline">
             {product.category}
           </span>
         </p>
@@ -63,14 +63,14 @@ const Product = ({ product }) => {
           </span>
         </p>
         <p className="flex justify-between items-center">
-          <p className="text-sm badge badge-outline badge-success py-4 px-5 rounded-lg">
-            $<span className="text-xl font-medium">{product.price}</span>
+          <p class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium">
+            <span class="text-green-500 !leading-none">${product.price}.00</span>
           </p>
           <span
             className="tooltip tooltip-left tooltip-secondary shadow rounded-full"
             data-tip="Add to cart"
           >
-            <span className="btn btn-sm btn-primary text-white rounded-full">
+            <span className="btn btn-sm btn-primary btn-circle text-white rounded-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"

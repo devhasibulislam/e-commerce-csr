@@ -15,12 +15,17 @@ const ExpertCard = ({ product }) => {
           {product.images.map(
             (image, index) =>
               index !== 0 && (
-                <img key={index} src={image} alt={product.title + index} loading="lazy" />
+                <img
+                  key={index}
+                  src={image}
+                  alt={product.title + index}
+                  loading="lazy"
+                />
               )
           )}
         </div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <div>
           <h2 className="text-lg whitespace-nowrap text-ellipsis overflow-hidden font-medium">
             {product.title}
@@ -49,8 +54,8 @@ const ExpertCard = ({ product }) => {
             </span>
           </p>
         </div>
-        <p className="text-sm badge badge-outline badge-success py-4 px-5 rounded-lg">
-          $<span className="text-xl font-medium">{product.price}</span>
+        <p class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium">
+          <span class="text-green-500 !leading-none">$30.00</span>
         </p>
       </div>
     </section>
