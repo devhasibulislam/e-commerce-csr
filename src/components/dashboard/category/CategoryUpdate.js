@@ -24,7 +24,7 @@ const CategoryUpdate = ({ category }) => {
     const updateCategory = async () => {
       setLoading(true);
       const request = await fetch(
-        `http://localhost:8080/category/${category._id}`,
+        `https://e-commerce-ssr.onrender.com/category/${category._id}`,
         {
           method: "PATCH",
           headers: {
@@ -55,7 +55,7 @@ const CategoryUpdate = ({ category }) => {
     const uploadThumbnail = async () => {
       setThumbnailLoading(true);
       const request = await fetch(
-        `http://localhost:8080/category/thumbnail?public_id=${category.thumbnail.public_id}`,
+        `https://e-commerce-ssr.onrender.com/category/thumbnail?public_id=${category.thumbnail.public_id}`,
         {
           method: "PATCH",
           body: formData,

@@ -24,7 +24,7 @@ const AddNewBrand = () => {
 
     const insertNewBrand = async () => {
       setLoading(true);
-      const request = await fetch(`http://localhost:8080/brand`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/brand`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -51,7 +51,7 @@ const AddNewBrand = () => {
 
     const uploadThumbnail = async () => {
       setThumbnailsLoading(true);
-      const request = await fetch(`http://localhost:8080/brand/logo`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/brand/logo`, {
         method: "POST",
         body: formData,
       });

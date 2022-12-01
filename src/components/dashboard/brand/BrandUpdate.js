@@ -30,7 +30,7 @@ const BrandUpdate = ({ brand }) => {
 
     const updateCategory = async () => {
       setLoading(true);
-      const request = await fetch(`http://localhost:8080/brand/${brand._id}`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/brand/${brand._id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -58,7 +58,7 @@ const BrandUpdate = ({ brand }) => {
     const uploadThumbnail = async () => {
       setThumbnailLoading(true);
       const request = await fetch(
-        `http://localhost:8080/brand/logo?public_id=${brand.logo.public_id}`,
+        `https://e-commerce-ssr.onrender.com/brand/logo?public_id=${brand.logo.public_id}`,
         {
           method: "PATCH",
           body: formData,

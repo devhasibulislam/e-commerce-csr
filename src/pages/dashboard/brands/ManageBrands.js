@@ -22,7 +22,7 @@ const ManageBrands = () => {
   function handleRemoveBrand(id) {
     setLoading(true);
     const removeProduct = async () => {
-      const request = await fetch(`http://localhost:8080/brand/${id}`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/brand/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

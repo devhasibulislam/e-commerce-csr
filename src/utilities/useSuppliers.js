@@ -4,7 +4,7 @@ function useSuppliers() {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["supplier"],
     queryFn: () =>
-      fetch("http://localhost:8080/supplier").then((res) => res.json()),
+      fetch("https://e-commerce-ssr.onrender.com/supplier").then((res) => res.json()),
   });
 
   return { suppliers: data?.data, loading: isLoading, refetch };

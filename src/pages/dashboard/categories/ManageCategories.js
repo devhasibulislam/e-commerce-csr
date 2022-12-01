@@ -161,7 +161,7 @@ const ManageCategories = () => {
         <Modal
           showModal={showOverviewModal}
           setShowModal={setShowOverviewModal}
-          modalHeader={"Product Overview"}
+          modalHeader={"Category Overview"}
           content={<CategoryOverview category={category} />}
         />
       )}
@@ -169,7 +169,7 @@ const ManageCategories = () => {
         <Modal
           showModal={showUpdateModal}
           setShowModal={setShowUpdateModal}
-          modalHeader={"Product Update"}
+          modalHeader={"Category Update"}
           content={<CategoryUpdate category={category} />}
         />
       )}
