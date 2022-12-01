@@ -24,7 +24,7 @@ const CategoryUpdate = ({ category }) => {
     const updateCategory = async () => {
       setLoading(true);
       const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/category/${category._id}`,
+        `http://localhost:8080/category/${category._id}`,
         {
           method: "PATCH",
           headers: {
@@ -47,15 +47,15 @@ const CategoryUpdate = ({ category }) => {
     updateCategory();
   }
 
-  // update avatar
+  // update thumbnail
   function handleCategoryThumbnail(event) {
     const formData = new FormData();
     formData.append("thumbnail", event.target.files[0]);
 
-    const uploadAvatar = async () => {
+    const uploadThumbnail = async () => {
       setThumbnailLoading(true);
       const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/category/thumbnail?public_id=${category.thumbnail.public_id}`,
+        `http://localhost:8080/category/thumbnail?public_id=${category.thumbnail.public_id}`,
         {
           method: "PATCH",
           body: formData,
@@ -75,7 +75,7 @@ const CategoryUpdate = ({ category }) => {
         setThumbnailLoading(false);
       }
     };
-    uploadAvatar();
+    uploadThumbnail();
   }
 
   return (
