@@ -16,6 +16,14 @@ const Dashboard = () => {
       title: "Manage Product",
       anchor: "/dashboard/manage-products",
     },
+    {
+      title: "Add New Category",
+      anchor: "/dashboard/add-new-category",
+    },
+    {
+      title: "Manage Categories",
+      anchor: "/dashboard/manage-categories",
+    },
   ];
 
   return (
@@ -60,7 +68,7 @@ const Dashboard = () => {
               <li key={index}>
                 <Link
                   to={route.anchor}
-                  className={location.pathname === route.anchor && "font-bold"}
+                  className={location.pathname === route.anchor && "font-bold shadow"}
                 >
                   {route.title}
                 </Link>
