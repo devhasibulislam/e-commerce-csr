@@ -156,7 +156,7 @@ const CategoryOverview = ({ category }) => {
                             <div className="avatar">
                               <div className="w-8 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
                                 <img
-                                  src={product.brand.thumbnail.url}
+                                  src={product.brand.logo.url}
                                   alt={product.brand.public_id}
                                   loading="lazy"
                                   className="object-cover"
