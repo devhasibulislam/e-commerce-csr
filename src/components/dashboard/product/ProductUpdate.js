@@ -11,9 +11,9 @@ const ProductUpdate = ({ product }) => {
   const [successfulState, setSuccessfulState] = useState(false);
   const [category, setCategory] = useState(product.category._id);
   const [brand, setBrand] = useState(product.brand._id);
-  const [categories, categoryLoading] = useCategories();
-  const [brands, brandLoading] = useBrands();
   const [loading, setLoading] = useState(false);
+  const {categories, isLoading: categoryLoading} = useCategories();
+  const {brands, isLoading: brandLoading} = useBrands();
 
   const [title, setTitle] = useState(product?.title);
   const [description, setDescription] = useState(product?.description);
