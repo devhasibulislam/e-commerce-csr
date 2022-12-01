@@ -21,6 +21,8 @@ import AddNewProduct from "./pages/dashboard/products/AddNewProduct";
 import ManageProducts from "./pages/dashboard/products/ManageProducts";
 import AddNewCategory from "./pages/dashboard/categories/AddNewCategory";
 import ManageCategories from "./pages/dashboard/categories/ManageCategories";
+import AddNewBrand from "./pages/dashboard/brands/AddNewBrand";
+import ManageBrands from "./pages/dashboard/brands/ManageBrands";
 
 export const UserContext = React.createContext({});
 
@@ -50,6 +52,8 @@ function App() {
             <Route path="manage-products" element={<ManageProducts />} />
             <Route path="add-new-category" element={<AddNewCategory />} />
             <Route path="manage-categories" element={<ManageCategories />} />
+            <Route path="add-new-brand" element={<AddNewBrand />} />
+            <Route path="manage-brands" element={<ManageBrands />} />
           </Route>
 
           {/* categories */}
