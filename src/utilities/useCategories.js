@@ -1,26 +1,13 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 function useCategories() {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ["categories"],
+    queryFn: () =>
+      fetch("https://e-commerce-ssr.onrender.com/category").then((res) => res.json()),
+  });
 
-  useEffect(() => {
-    const getCategories = async () => {
-      setLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/category`);
-      const response = await request.json();
-      if (response.acknowledgement) {
-        setCategories(response.data);
-        setLoading(false);
-      } else {
-        console.log(response.description);
-        setLoading(false);
-      }
-    };
-    getCategories();
-  }, []);
-
-  return [categories, loading];
+  return { categories: data?.data, loading: isLoading, refetch };
 }
 
 export default useCategories;
