@@ -58,7 +58,7 @@ const ManageCategories = () => {
               </tr>
             </thead>
             <tbody>
-              {categories.map((category) => (
+              {categories?.map((category) => (
                 <tr key={category._id} className="hover">
                   <th title={category._id}>
                     {category._id.slice(0, 5) + "..."}

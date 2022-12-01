@@ -162,7 +162,7 @@ const User = () => {
       >
         {user?.name ? (
           <>
-            {items.map((item, index) => (
+            {items?.map((item, index) => (
               <li key={index} className="rounded-md">
                 <Link to={item.anchor} className={style}>
                   {item.icon} {item.title}

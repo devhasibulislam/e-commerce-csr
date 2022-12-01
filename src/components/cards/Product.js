@@ -44,7 +44,7 @@ const Product = ({ product }) => {
         <p className="flex items-center gap-x-2">
           Rating:{" "}
           <span className="flex text-sm">
-            {[...Array(Math.round(product.ratings)).keys()].map((rating) => (
+            {[...Array(Math.round(product.ratings)).keys()]?.map((rating) => (
               <svg
                 key={rating}
                 xmlns="http://www.w3.org/2000/svg"

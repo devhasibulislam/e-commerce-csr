@@ -12,7 +12,7 @@ const ExpertCard = ({ product }) => {
           className="bg-[#eef0f2] rounded-xl mx-auto h-[300px] w-full object-cover"
         />
         <div className="grid grid-cols-3 gap-x-4">
-          {product.images.map(
+          {product?.images?.map(
             (image, index) =>
               index !== 0 && (
                 <img
@@ -33,7 +33,7 @@ const ExpertCard = ({ product }) => {
           <p className="flex lg:flex-row flex-col md:gap-x-4 gap-x-2">
             <GreyText>{product.about}</GreyText>
             <span className="flex text-sm">
-              {[...Array(Math.round(product.rating.rates)).keys()].map(
+              {[...Array(Math.round(product.rating.rates)).keys()]?.map(
                 (rete) => (
                   <svg
                     key={rete}

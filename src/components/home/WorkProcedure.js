@@ -35,7 +35,7 @@ const WorkProcedure = () => {
         className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 bg-no-repeat bg-contain gap-20 bg-right-top"
         style={{ backgroundImage: "url(/assets/procedure/procedure_bg.svg)" }}
       >
-        {procedures.map((procedure, index) => (
+        {procedures?.map((procedure, index) => (
           <div key={index} className="shadow-sm hover:shadow hover:bg-white p-6 rounded-lg flex flex-col gap-y-4">
             <img
               src={procedure.image}

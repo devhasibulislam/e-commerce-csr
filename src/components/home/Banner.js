@@ -55,7 +55,7 @@ const Banner = () => {
         autoPlay={true}
         autoPlaySpeed={3000}
       >
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <div
             key={index}
             className="grid lg:grid-cols-2 grid-cols-1 items-center justify-items-center lg:gap-x-4 gap-y-4"

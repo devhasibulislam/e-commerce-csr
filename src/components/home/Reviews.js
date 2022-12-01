@@ -109,7 +109,7 @@ const Reviews = () => {
         infinite={true}
         className="py-4 discover_carousel"
       >
-        {reviews.map((review, index) => (
+        {reviews?.map((review, index) => (
           <ReviewCard key={index} review={review} />
         ))}
       </Carousel>

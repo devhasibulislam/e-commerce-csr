@@ -74,7 +74,7 @@ const Department = () => {
         infinite={true}
         className="py-4 discover_carousel"
       >
-        {departments.map((department, index) => (
+        {departments?.map((department, index) => (
           <div key={index} className="flex flex-col gap-y-4 p-6 hover:shadow rounded-xl">
             <img
               src={department.image}

@@ -38,7 +38,7 @@ const Newsletter = () => {
             </GreyText>
           </p>
           <div className="flex flex-col gap-y-2">
-            {facilities.map((facility, index) => (
+            {facilities?.map((facility, index) => (
               <p key={index} className="flex items-center gap-x-2">
                 {facility.step}
                 <span className="text-lg font-medium">{facility.title}</span>

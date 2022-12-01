@@ -65,7 +65,7 @@ const ManageProducts = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {products?.map((product) => (
                 <tr key={product._id} className="hover">
                   <th title={product._id}>{product._id.slice(0, 5) + "..."}</th>
                   <td>

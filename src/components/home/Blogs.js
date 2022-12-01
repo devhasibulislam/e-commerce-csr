@@ -124,7 +124,7 @@ const Blogs = () => {
         infinite={true}
         className="py-4 discover_carousel"
       >
-        {blogs.map((blog, index) => (
+        {blogs?.map((blog, index) => (
           <BlogCard key={index} blog={blog} />
         ))}
       </Carousel>

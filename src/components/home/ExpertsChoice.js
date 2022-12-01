@@ -104,7 +104,7 @@ const ExpertsChoice = () => {
         infinite={true}
         className="py-4 discover_carousel"
       >
-        {choices.map((choice, index) => (
+        {choices?.map((choice, index) => (
           <ExpertCard key={index} product={choice} />
         ))}
       </Carousel>

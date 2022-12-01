@@ -37,7 +37,7 @@ const ProductOverview = ({ product }) => {
             draggable={true}
             arrows={true}
           >
-            {product.thumbnails.map((thumb) => (
+            {product.thumbnails?.map((thumb) => (
               <img
                 src={thumb.url}
                 alt={thumb.public_id}

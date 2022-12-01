@@ -35,7 +35,7 @@ const ProductCarousel = ({ products }) => {
       infinite={true}
       className="py-4 discover_carousel"
     >
-      {products.map((product, index) => (
+      {products?.map((product, index) => (
         <Product key={index} product={product} />
       ))}
     </Carousel>

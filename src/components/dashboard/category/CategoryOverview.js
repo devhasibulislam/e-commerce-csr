@@ -123,7 +123,7 @@ const CategoryOverview = ({ category }) => {
           </button>
           <div className="flex flex-col gap-y-4">
             {expandProductState &&
-              products.map((product) =>
+              products?.map((product) =>
                 product.category._id === category._id ? (
                   isLoading ? (
                     <TinyLoading />

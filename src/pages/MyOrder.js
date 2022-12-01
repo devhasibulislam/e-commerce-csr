@@ -230,7 +230,7 @@ const MyOrder = () => {
               Order summary
             </h1>
             <div className="grid grid-cols-1 gap-y-4">
-              {products.map((product, index) => (
+              {products?.map((product, index) => (
                 <OrderSummaryCard key={index} product={product} />
               ))}
             </div>

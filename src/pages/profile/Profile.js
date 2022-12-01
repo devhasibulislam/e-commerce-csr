@@ -40,7 +40,7 @@ const Profile = () => {
           </h2>
         </div>
         <div className="tabs grid lg:block md:grid-cols-4 grid-cols-3 lg:gap-0 gap-4 my-12">
-          {tabs.map((tab, index) => (
+          {tabs?.map((tab, index) => (
             <span
               key={index}
               className={`tab tab-bordered whitespace-nowrap ${

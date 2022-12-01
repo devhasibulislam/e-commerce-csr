@@ -137,7 +137,7 @@ const ProductUpdate = ({ product }) => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option selected>{product.category.title}</option>
-              {categories.map(
+              {categories?.map(
                 (category) =>
                   product.category.title !== category.title && (
                     <option key={category._id} value={category._id}>
@@ -162,7 +162,7 @@ const ProductUpdate = ({ product }) => {
               onChange={(e) => setBrand(e.target.value)}
             >
               <option selected>{product.brand.title}</option>
-              {brands.map(
+              {brands?.map(
                 (brand) =>
                   product.brand.title !== brand.title && (
                     <option key={brand._id} value={brand._id}>

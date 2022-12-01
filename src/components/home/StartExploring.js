@@ -271,7 +271,7 @@ const StartExploring = () => {
         <h1 className="text-6xl font-bold text-center">Start Exploring</h1>
         {/* tabs */}
         <div className="text-center grid lg:block md:grid-cols-3 grid-cols-2 lg:gap-0 gap-4">
-          {tabs.map((tab, index) => (
+          {tabs?.map((tab, index) => (
             <span
               key={index}
               className={`tab tab-lg tab-lifted whitespace-nowrap ${
@@ -285,7 +285,7 @@ const StartExploring = () => {
         </div>
         {/* explorers */}
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-4 gap-4">
-          {explores.map((explore, index) => (
+          {explores?.map((explore, index) => (
             <ExploreCards key={index} category={explore} />
           ))}
         </div>

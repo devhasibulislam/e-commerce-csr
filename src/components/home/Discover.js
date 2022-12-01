@@ -73,7 +73,7 @@ const Discover = () => {
         infinite={true}
         className="py-4 gap-x-4 discover_carousel"
       >
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <DiscoverCard key={index} item={item} />
         ))}
       </Carousel>
