@@ -24,6 +24,14 @@ const Dashboard = () => {
       title: "Manage Categories",
       anchor: "/dashboard/manage-categories",
     },
+    {
+      title: "Add New Brand",
+      anchor: "/dashboard/add-new-brand",
+    },
+    {
+      title: "Manage Brands",
+      anchor: "/dashboard/manage-brands",
+    },
   ];
 
   return (
