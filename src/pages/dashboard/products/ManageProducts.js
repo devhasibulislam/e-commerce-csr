@@ -24,7 +24,7 @@ const ManageProducts = () => {
   function handleRemoveProduct(id) {
     setLoading(true);
     const removeProduct = async () => {
-      const request = await fetch(`http://localhost:8080/product/${id}`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/product/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

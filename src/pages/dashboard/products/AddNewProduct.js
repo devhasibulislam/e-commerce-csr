@@ -66,7 +66,7 @@ const AddNewProduct = () => {
 
     const insertNewProduct = async () => {
       setLoading(true);
-      const request = await fetch(`http://localhost:8080/product`, {
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/product`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

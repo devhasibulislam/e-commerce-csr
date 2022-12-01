@@ -7,7 +7,7 @@ function useCategories() {
   useEffect(() => {
     const getCategories = async () => {
       setLoading(true);
-      const request = await fetch(`http://localhost:8080/category`);
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/category`);
       const response = await request.json();
       if (response.acknowledgement) {
         setCategories(response.data);

@@ -7,7 +7,7 @@ function useBrands() {
   useEffect(() => {
     const getBrands = async () => {
       setLoading(true);
-      const request = await fetch(`http://localhost:8080/brand`);
+      const request = await fetch(`https://e-commerce-ssr.onrender.com/brand`);
       const response = await request.json();
       if (response.acknowledgement) {
         setBrands(response.data);
