@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const ProductOverview = ({ product }) => {
-  const [expandState, setExpandState] = useState(false);
+  const [expandState, setExpandState] = useState(true);
   const [quantity, setQuantity] = useState(1);
 
   // carousel configuration
