@@ -9,6 +9,7 @@
     "Signin",
     "swipeable",
     "tailwindcss",
+    "tanstack",
     "toastify"
   ],
   "[json]": {
