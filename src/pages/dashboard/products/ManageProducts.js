@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Modal from "../../../components/Modal";
 import ProductOverview from "../../../components/product/ProductOverview";
+import ProductUpdate from "../../../components/product/ProductUpdate";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
 import useProducts from "../../../utilities/useProducts";
@@ -11,6 +12,7 @@ const ManageProducts = () => {
   const { products, loading: productLoading, refetch } = useProducts();
   const [product, setProduct] = useState({});
   const [showOverviewModal, setShowOverviewModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -115,7 +117,13 @@ const ManageProducts = () => {
                       </button>
 
                       {/* edit */}
-                      <button className="btn btn-sm btn-circle btn-secondary">
+                      <button
+                        className="btn btn-sm btn-circle btn-secondary"
+                        onClick={() => {
+                          setShowUpdateModal(true);
+                          setProduct(product);
+                        }}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -166,6 +174,14 @@ const ManageProducts = () => {
           setShowModal={setShowOverviewModal}
           modalHeader={"Product Overview"}
           content={<ProductOverview product={product} />}
+        />
+      )}
+      {showUpdateModal && (
+        <Modal
+          showModal={showUpdateModal}
+          setShowModal={setShowUpdateModal}
+          modalHeader={"Product Update"}
+          content={<ProductUpdate product={product} />}
         />
       )}
     </>
