@@ -392,6 +392,7 @@ const EditProfile = () => {
                 alt={avatar.public_id}
                 height={70}
                 width={70}
+                loading="lazy"
                 className="object-cover rounded shadow"
               />
               <p className="text-sm font-medium flex flex-col">
