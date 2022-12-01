@@ -26,7 +26,7 @@ const ProductUpdate = ({ product }) => {
 
     const uploadThumbnails = async () => {
       setThumbnailsLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/product/thumbnails`, {
+      const request = await fetch(`http://localhost:8080/product/thumbnails`, {
         method: "POST",
         body: formData,
       });
@@ -66,7 +66,7 @@ const ProductUpdate = ({ product }) => {
     const updateProduct = async () => {
       setLoading(true);
       const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/product/${product._id}`,
+        `http://localhost:8080/product/${product._id}`,
         {
           method: "PATCH",
           headers: {
