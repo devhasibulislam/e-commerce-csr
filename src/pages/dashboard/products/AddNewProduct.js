@@ -13,9 +13,9 @@ const AddNewProduct = () => {
   const [successfulState, setSuccessfulState] = useState(false);
   const [category, setCategory] = useState("");
   const [brand, setBrand] = useState("");
-  const [categories, categoryLoading] = useCategories();
-  const [brands, brandLoading] = useBrands();
   const [loading, setLoading] = useState(false);
+  const { categories, isLoading: categoryLoading } = useCategories();
+  const { brands, isLoading: brandLoading } = useBrands();
 
   function handleProductThumbnails(event) {
     const formData = new FormData();
@@ -66,14 +66,17 @@ const AddNewProduct = () => {
 
     const insertNewProduct = async () => {
       setLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/product`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(productInfo),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/product`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(productInfo),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         event.target.reset();
@@ -137,7 +140,7 @@ const AddNewProduct = () => {
                 <option disabled selected>
                   Choose a category
                 </option>
-                {categories.map((category) => (
+                {categories?.map((category) => (
                   <option key={category._id} value={category._id}>
                     {category.title}
                   </option>
@@ -161,7 +164,7 @@ const AddNewProduct = () => {
                 <option disabled selected>
                   Choose a brand
                 </option>
-                {brands.map((brand) => (
+                {brands?.map((brand) => (
                   <option key={brand._id} value={brand._id}>
                     {brand.title}
                   </option>
