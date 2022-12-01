@@ -5,7 +5,7 @@ const FormLogo = () => {
   return (
     <Link to="/">
       <img
-        src={"logo.svg"}
+        src={"logo.png"}
         height={39}
         width={128}
         loading="lazy"
