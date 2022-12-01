@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Modal from "../../../components/Modal";
-import ProductOverview from "../../../components/product/ProductOverview";
-import ProductUpdate from "../../../components/product/ProductUpdate";
+import ProductOverview from "../../../components/dashboard/product/ProductOverview";
+import ProductUpdate from "../../../components/dashboard/product/ProductUpdate";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
 import useProducts from "../../../utilities/useProducts";
@@ -76,7 +76,7 @@ const ManageProducts = () => {
                         ].url
                       }
                       alt="product thumbnail"
-                      className="h-8 w-8"
+                      className="h-8 w-8 object-cover"
                     />
                   </td>
                   <td>{product.title}</td>
