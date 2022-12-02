@@ -21,6 +21,8 @@ import AddNewBrand from "./pages/dashboard/brands/AddNewBrand";
 import ManageBrands from "./pages/dashboard/brands/ManageBrands";
 import AccountMigrations from "./pages/dashboard/accounts/AccountMigrations";
 import ManageUsers from "./pages/dashboard/accounts/ManageUsers";
+import AddNewStore from "./pages/dashboard/stores/AddNewStore";
+import ManageStores from "./pages/dashboard/stores/ManageStores";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -59,6 +61,8 @@ function App() {
             <Route path="manage-brands" element={<ManageBrands />} />
             <Route path="account-migrations" element={<AccountMigrations />} />
             <Route path="manage-users" element={<ManageUsers />} />
+            <Route path="add-new-store" element={<AddNewStore />} />
+            <Route path="manage-stores" element={<ManageStores />} />
           </Route>
 
           {/* categories */}
