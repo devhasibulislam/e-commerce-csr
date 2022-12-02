@@ -11,50 +11,82 @@ const Dashboard = () => {
     {
       title: "Add New Product",
       anchor: "/dashboard/add-new-product",
+      route_for: [""],
     },
     {
       title: "Manage Product",
       anchor: "/dashboard/manage-products",
+      route_for: [""],
     },
     {
       title: "Add New Category",
       anchor: "/dashboard/add-new-category",
+      route_for: [""],
     },
     {
       title: "Manage Categories",
       anchor: "/dashboard/manage-categories",
+      route_for: [""],
     },
     {
       title: "Add New Brand",
       anchor: "/dashboard/add-new-brand",
+      route_for: [""],
     },
     {
       title: "Manage Brands",
       anchor: "/dashboard/manage-brands",
+      route_for: [""],
     },
     {
       title: "Account Migrations",
       anchor: "/dashboard/account-migrations",
+      route_for: [""],
     },
     {
       title: "Manage Users",
       anchor: "/dashboard/manage-users",
+      route_for: [""],
     },
     {
       title: "Add New Store",
       anchor: "/dashboard/add-new-store",
+      route_for: [""],
     },
     {
       title: "Manage Stores",
       anchor: "/dashboard/manage-stores",
+      route_for: [""],
     },
     {
       title: "Add New Stock",
       anchor: "/dashboard/add-new-stock",
+      route_for: [""],
     },
     {
       title: "Manage Stocks",
       anchor: "/dashboard/manage-stocks",
+      route_for: [""],
+    },
+    {
+      title: "Add New Banner",
+      anchor: "/dashboard/add-new-banner",
+      route_for: [""],
+    },
+    {
+      title: "Manage Banners",
+      anchor: "/dashboard/manage-banners",
+      route_for: [""],
+    },
+    {
+      title: "Add New Review",
+      anchor: "/dashboard/add-new-review",
+      route_for: [""],
+    },
+    {
+      title: "Manage Reviews",
+      anchor: "/dashboard/manage-reviews",
+      route_for: [""],
     },
   ];
 
@@ -100,7 +132,9 @@ const Dashboard = () => {
               <li key={index}>
                 <Link
                   to={route.anchor}
-                  className={location.pathname === route.anchor && "font-bold shadow"}
+                  className={
+                    location.pathname === route.anchor && "font-bold shadow"
+                  }
                 >
                   {route.title}
                 </Link>
