@@ -15,7 +15,7 @@ const BrandUpdate = ({ brand }) => {
   const [loading, setLoading] = useState(false);
   const [successfulState, setSuccessfulState] = useState(false);
 
-  function handleUpdateLogo(event) {
+  function handleUpdateBrand(event) {
     event.preventDefault();
 
     const categoryInfo = {
@@ -85,7 +85,7 @@ const BrandUpdate = ({ brand }) => {
     <section>
       <form
         className="flex flex-col gap-y-4 w-full"
-        onSubmit={handleUpdateLogo}
+        onSubmit={handleUpdateBrand}
       >
         {/* brand title */}
         <div className="form-control">
