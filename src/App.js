@@ -27,6 +27,8 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import AddNewStock from "./pages/dashboard/stocks/AddNewStock";
+import ManageStocks from "./pages/dashboard/stocks/ManageStocks";
 
 // Context API
 export const UserContext = React.createContext({});
@@ -63,6 +65,8 @@ function App() {
             <Route path="manage-users" element={<ManageUsers />} />
             <Route path="add-new-store" element={<AddNewStore />} />
             <Route path="manage-stores" element={<ManageStores />} />
+            <Route path="add-new-stock" element={<AddNewStock />} />
+            <Route path="manage-stocks" element={<ManageStocks />} />
           </Route>
 
           {/* categories */}
