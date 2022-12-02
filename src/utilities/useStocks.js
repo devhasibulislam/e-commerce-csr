@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 function useStocks() {
-  const { data, isLoading, refetch } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["stocks"],
     queryFn: () =>
       fetch(`https://e-commerce-ssr.onrender.com/stock`, {
