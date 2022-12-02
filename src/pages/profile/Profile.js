@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../App";
 import SecondaryContainer from "../../components/container/SecondaryContainer";
+import AccountMigration from "../../components/profile/AccountMigration";
 import ChangePassword from "../../components/profile/ChangePassword";
 import DeleteAccount from "../../components/profile/DeleteAccount";
 import EditProfile from "../../components/profile/EditProfile";
@@ -14,6 +15,7 @@ const Profile = () => {
 
   const tabs = [
     "Account info",
+    "Migrate Account",
     "My Wishlists",
     "Change password",
     "Change billing",
@@ -54,6 +56,7 @@ const Profile = () => {
         </div>
 
         {tabState === "Account info" && <EditProfile />}
+        {tabState === "Migrate Account" && <AccountMigration />}
         {tabState === "My Wishlists" && <>My Wishlists</>}
         {tabState === "Change password" && <ChangePassword />}
         {tabState === "Change billing" && <>Change billing</>}
