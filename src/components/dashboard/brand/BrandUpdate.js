@@ -153,7 +153,7 @@ const BrandUpdate = ({ brand }) => {
             type="text"
             name="location"
             value={location}
-            onChange={(e) => setLoading(e.target.value)}
+            onChange={(e) => setLocation(e.target.value)}
             className="input input-bordered w-full"
           />
         </div>
