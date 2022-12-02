@@ -23,12 +23,16 @@ import AccountMigrations from "./pages/dashboard/accounts/AccountMigrations";
 import ManageUsers from "./pages/dashboard/accounts/ManageUsers";
 import AddNewStore from "./pages/dashboard/stores/AddNewStore";
 import ManageStores from "./pages/dashboard/stores/ManageStores";
+import AddNewStock from "./pages/dashboard/stocks/AddNewStock";
+import ManageStocks from "./pages/dashboard/stocks/ManageStocks";
+import AddNewBanner from "./pages/dashboard/banners/AddNewBanner";
+import ManageBanners from "./pages/dashboard/banners/ManageBanners";
+import AddNewReview from "./pages/dashboard/reviews/AddNewReview";
+import ManageReviews from "./pages/dashboard/reviews/ManageReviews";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import AddNewStock from "./pages/dashboard/stocks/AddNewStock";
-import ManageStocks from "./pages/dashboard/stocks/ManageStocks";
 
 // Context API
 export const UserContext = React.createContext({});
@@ -67,6 +71,10 @@ function App() {
             <Route path="manage-stores" element={<ManageStores />} />
             <Route path="add-new-stock" element={<AddNewStock />} />
             <Route path="manage-stocks" element={<ManageStocks />} />
+            <Route path="add-new-banner" element={<AddNewBanner />} />
+            <Route path="manage-banners" element={<ManageBanners />} />
+            <Route path="add-new-review" element={<AddNewReview />} />
+            <Route path="manage-reviews" element={<ManageReviews />} />
           </Route>
 
           {/* categories */}
