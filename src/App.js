@@ -1,5 +1,4 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 import Blogs from "./pages/blogs/Blogs";
 import Categories from "./pages/categories/Categories";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -9,9 +8,6 @@ import Forgot from "./pages/profile/Forgot";
 import Profile from "./pages/profile/Profile";
 import Signin from "./pages/profile/Signin";
 import Signup from "./pages/profile/Signup";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
 import useMyself from "./utilities/useMyself";
 import Loading from "./shared/loading/Loading";
 import RequireAuth from "./components/profile/RequireAuth";
@@ -23,7 +19,14 @@ import AddNewCategory from "./pages/dashboard/categories/AddNewCategory";
 import ManageCategories from "./pages/dashboard/categories/ManageCategories";
 import AddNewBrand from "./pages/dashboard/brands/AddNewBrand";
 import ManageBrands from "./pages/dashboard/brands/ManageBrands";
+import AccountMigrations from "./pages/dashboard/accounts/AccountMigrations";
+import ManageUsers from "./pages/dashboard/accounts/ManageUsers";
+import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 
+// Context API
 export const UserContext = React.createContext({});
 
 function App() {
@@ -54,6 +57,8 @@ function App() {
             <Route path="manage-categories" element={<ManageCategories />} />
             <Route path="add-new-brand" element={<AddNewBrand />} />
             <Route path="manage-brands" element={<ManageBrands />} />
+            <Route path="account-migrations" element={<AccountMigrations />} />
+            <Route path="manage-users" element={<ManageUsers />} />
           </Route>
 
           {/* categories */}
