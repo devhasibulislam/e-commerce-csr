@@ -32,6 +32,14 @@ const Dashboard = () => {
       title: "Manage Brands",
       anchor: "/dashboard/manage-brands",
     },
+    {
+      title: "Account Migrations",
+      anchor: "/dashboard/account-migrations",
+    },
+    {
+      title: "Manage Users",
+      anchor: "/dashboard/manage-users",
+    },
   ];
 
   return (
