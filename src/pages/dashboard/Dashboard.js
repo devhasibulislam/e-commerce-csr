@@ -40,6 +40,14 @@ const Dashboard = () => {
       title: "Manage Users",
       anchor: "/dashboard/manage-users",
     },
+    {
+      title: "Add New Store",
+      anchor: "/dashboard/add-new-store",
+    },
+    {
+      title: "Manage Stores",
+      anchor: "/dashboard/manage-stores",
+    },
   ];
 
   return (
