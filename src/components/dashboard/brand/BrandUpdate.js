@@ -53,7 +53,7 @@ const BrandUpdate = ({ brand }) => {
 
   function handleBrandLogo(event) {
     const formData = new FormData();
-    formData.append("thumbnail", event.target.files[0]);
+    formData.append("logo", event.target.files[0]);
 
     const uploadThumbnail = async () => {
       setThumbnailLoading(true);
@@ -195,7 +195,7 @@ const BrandUpdate = ({ brand }) => {
                 </label>
                 <input
                   type="file"
-                  name="thumbnail"
+                  name="logo"
                   className="file-input file-input-bordered w-full"
                   onChange={handleBrandLogo}
                 />
