@@ -3,41 +3,11 @@ import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import useBrands from "../../utilities/useBrands";
+import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Department = () => {
-  // carousel data
-  const departments = [
-    {
-      title: "Travel Kit",
-      categoryCount: 20,
-      image: "/assets/department/department1.png",
-      backgroundColor: "#e0e6fe",
-    },
-    {
-      title: "Beauty Products",
-      categoryCount: 10,
-      image: "/assets/department/department2.png",
-      backgroundColor: "#d8dce0",
-    },
-    {
-      title: "Sports Kit",
-      categoryCount: 34,
-      image: "/assets/department/department3.png",
-      backgroundColor: "#cee0eb",
-    },
-    {
-      title: "Pets Food",
-      categoryCount: 12,
-      image: "/assets/department/department4.png",
-      backgroundColor: "#ffeed7",
-    },
-    {
-      title: "Travel Kit",
-      categoryCount: 20,
-      image: "/assets/department/department1.png",
-      backgroundColor: "#e0e6fe",
-    },
-  ];
+  const { brands, loading } = useBrands();
 
   // carousel configuration
   const responsive = {
@@ -64,7 +34,7 @@ const Department = () => {
   return (
     <PrimaryContainer>
       <h1 className="lg:text-4xl md:text-2xl text-xl font-semibold mb-4">
-        Sort by dept. <GreyText>Shop by department</GreyText>
+        Bulk sorted by which. <GreyText>Shop by brands</GreyText>
       </h1>
       <Carousel
         responsive={responsive}
@@ -74,21 +44,30 @@ const Department = () => {
         infinite={true}
         className="py-4 discover_carousel"
       >
-        {departments?.map((department, index) => (
-          <div key={index} className="flex flex-col gap-y-4 p-6 hover:shadow rounded-xl">
-            <img
-              src={department.image}
-              alt={department.title}
-              loading="lazy"
-              style={{ backgroundColor: department.backgroundColor }}
-              className="h-[300px] w-full object-contain rounded-lg"
-            />
-            <article className="text-center">
-              <h3 className="text-xl font-medium">{department.title}</h3>
-              <GreyText>{department.categoryCount}+ categories</GreyText>
-            </article>
-          </div>
-        ))}
+        {loading ? (
+          <SmallLoading />
+        ) : (
+          brands?.map((brand) => (
+            <div
+              key={brand?._id}
+              className="flex flex-col gap-y-4 p-6 hover:shadow rounded-xl"
+            >
+              <img
+                src={brand?.logo?.url}
+                alt={brand?.logo?.public_id}
+                loading="lazy"
+                style={{ backgroundColor: "#e0e5fd" }}
+                className="h-[300px] w-[336px] object-cover rounded-lg shadow-sm"
+              />
+              <article className="text-center">
+                <h3 className="text-xl font-medium">{brand.title}</h3>
+                <GreyText>{brand.email}</GreyText>
+                <br />
+                <GreyText>{brand.location}</GreyText>
+              </article>
+            </div>
+          ))
+        )}
       </Carousel>
     </PrimaryContainer>
   );
