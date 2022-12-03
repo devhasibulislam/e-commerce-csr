@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
 import Product from "../cards/Product";
+import useProducts from "../../utilities/useProducts";
+import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Trending = () => {
+  const { products, loading } = useProducts();
   const [tabState, setTabState] = useState("All Items");
   const [showFilter, setShowFilter] = useState(false);
   const tabs = ["All Items", "Mens", "Women", "Kids", "Jewels"];
@@ -245,205 +248,6 @@ const Trending = () => {
     },
   ];
 
-  const products = [
-    {
-      _id: "b1872b25-ba91-48ed-9468-1822df0637b9",
-      category: "Cap",
-      name: "Relaxed Strap-Back Hat",
-      seller: "Addidas",
-      price: 30,
-      stock: 6,
-      ratings: 4,
-      ratingsCount: 4,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/4feb20f4d990407cb4f1a88a0040b212_9366/Relaxed_Strap-Back_Hat_Black_BH7137_01_standard.jpg",
-      shipping: 1,
-      quantity: 0,
-    },
-    {
-      _id: "ea028038-4e9d-42bf-b033-88aa5e6cc477",
-      category: "Cap",
-      name: "Icon Snapback Hat",
-      seller: "Addidas",
-      price: 21,
-      stock: 13,
-      ratings: 4,
-      ratingsCount: 1,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/1e27ae8bbfb647489261ac8e015d181f_9366/Icon_Snapback_Hat_Grey_EX6798_01_standard.jpg",
-      shipping: 26,
-      quantity: 0,
-    },
-    {
-      _id: "d48e0fcb-904c-499e-93a0-312d77e6dbf9",
-      category: "Cap",
-      name: "Superlite Hat",
-      seller: "Addidas",
-      price: 11,
-      stock: 18,
-      ratings: 3,
-      ratingsCount: 39,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/0ae141db6fce44999337ac8e015954ea_9366/Superlite_Hat_Grey_EX7054_01_standard.jpg",
-      shipping: 32,
-      quantity: 0,
-    },
-    {
-      _id: "71dfc7f9-844b-4be7-816f-891a5cbaa0f1",
-      category: "Cap",
-      name: "Superlite Hat",
-      seller: "Addidas",
-      price: 10,
-      stock: 10,
-      ratings: 5,
-      ratingsCount: 47,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/272d5d9cb7b74415a6c9ac8e015a4ccc_9366/Superlite_Hat_Black_EX7048_01_standard.jpg",
-      shipping: 24,
-      quantity: 0,
-    },
-    {
-      _id: "a9d89eac-7418-4bca-a484-c8238c356270",
-      category: "Cap",
-      name: "Tee Time 5-Panel Hat",
-      seller: "Addidas",
-      price: 24,
-      stock: 1,
-      ratings: 4,
-      ratingsCount: 14,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/df67ab60b5574c368b76adf9010f2d2d_9366/Tee_Time_5-Panel_Hat_Black_HA9254_01_standard.jpg",
-      shipping: 48,
-      quantity: 0,
-    },
-    {
-      _id: "f6a5e6c0-5aec-4f10-84d7-bde9b6199045",
-      category: "Cap",
-      name: "Baseball Cap",
-      seller: "Addidas",
-      price: 17,
-      stock: 7,
-      ratings: 5,
-      ratingsCount: 37,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/0ce5f49aa0914deabf16adc600d09e60_9366/Baseball_Cap_Black_HD7039_01_standard.jpg",
-      shipping: 48,
-      quantity: 0,
-    },
-    {
-      _id: "625b4b60-611c-490c-ac0a-f3c2d2afd05c",
-      category: "Cap",
-      name: "Relaxed Strap-Back Hat",
-      seller: "Addidas",
-      price: 24,
-      stock: 9,
-      ratings: 5,
-      ratingsCount: 15,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/aaa5ae549c624178bc25a740012dd61f_9366/Relaxed_Strap-Back_Hat_White_BH7135_01_standard.jpg",
-      shipping: 6,
-      quantity: 0,
-    },
-    {
-      _id: "5960bf40-9603-4a39-9ff6-6cf9f1ce4815",
-      category: "Cap",
-      name: "UNISEX ORIGINALS WASHED BUCKET",
-      seller: "Addidas",
-      price: 27,
-      stock: 14,
-      ratings: 4,
-      ratingsCount: 3,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/e1e758585df14bbbb7d8aaf000c95bd7_9366/UNISEX_ORIGINALS_WASHED_BUCKET_White_CM3933_01_standard.jpg",
-      shipping: 14,
-      quantity: 0,
-    },
-    {
-      _id: "5991add1-f4ba-4fb9-9b6b-ec59aa2dda60",
-      category: "Cap",
-      name: "SST Plus Strap-Back Hat",
-      seller: "Addidas",
-      price: 23,
-      stock: 14,
-      ratings: 4,
-      ratingsCount: 32,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/92e77a8d84d845d19171ad50003f2ea1_9366/SST_Plus_Strap-Back_Hat_White_FZ8569_01_standard.jpg",
-      shipping: 47,
-      quantity: 0,
-    },
-    {
-      _id: "5690e579-a943-4b42-9ffe-dfc65b71c560",
-      category: "Cap",
-      name: "Dispatch Trucker Hat",
-      seller: "Addidas",
-      price: 28,
-      stock: 16,
-      ratings: 4,
-      ratingsCount: 30,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c3981523051c4a978674ad3c01015664_9366/Dispatch_Trucker_Hat_Black_EY5534_01_standard.jpg",
-      shipping: 14,
-      quantity: 0,
-    },
-    {
-      _id: "be7a4d0a-c681-416c-ab8d-f9be28223f4e",
-      category: "Earphones",
-      name: "adidas Z.N.E. 01 True Wireless Earbuds",
-      seller: "Addidas",
-      price: 142,
-      stock: 11,
-      ratings: 5,
-      ratingsCount: 22,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/00276c6c380b41bcb29fadcc00f98312_9366/adidas_Z.N.E._01_True_Wireless_Earbuds_Grey_EY5116_42_detail.jpg",
-      shipping: 23,
-      quantity: 0,
-    },
-    {
-      _id: "b278e667-ca17-465c-b603-af1af4319b7b",
-      category: "Earphones",
-      name: "adidas Z.N.E. 01 ANC True Wireless Earbuds",
-      seller: "Addidas",
-      price: 135,
-      stock: 16,
-      ratings: 5,
-      ratingsCount: 51,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/b322cdef8e654551ace9adcc00f963ed_9366/adidas_Z.N.E._01_ANC_True_Wireless_Earbuds_Grey_EY5114_41_detail.jpg",
-      shipping: 30,
-      quantity: 0,
-    },
-    {
-      _id: "1f56c0e5-4407-44bf-9225-90f592d2924a",
-      category: "Earphones",
-      name: "FWD-01 Sport In-Ear Headphones",
-      seller: "Addidas",
-      price: 185,
-      stock: 8,
-      ratings: 4,
-      ratingsCount: 66,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/2cdb8652aa2340369ba2aa79010062d1_9366/FWD-01_Sport_In-Ear_Headphones_Black_CM5016_01_standard.jpg",
-      shipping: 15,
-      quantity: 0,
-    },
-    {
-      _id: "4ead4708-68e8-4a93-b28e-5e99ccc4d75c",
-      category: "Earphones",
-      name: "adidas FWD-02 Sport True Wireless Earbuds",
-      seller: "Addidas",
-      price: 162,
-      stock: 14,
-      ratings: 4,
-      ratingsCount: 6,
-      thumbnail:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/523731a02e914d318cb4adcc00f985ba_9366/adidas_FWD-02_Sport_True_Wireless_Earbuds_Grey_EY5113_03_standard_hover.jpg",
-      shipping: 29,
-      quantity: 0,
-    },
-  ];
-
   return (
     <PrimaryContainer>
       <h1 className="lg:text-4xl md:text-2xl text-xl font-semibold mb-4">
@@ -579,9 +383,13 @@ const Trending = () => {
             </div>
           )}
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
-            {products?.map((product) => (
-              <Product key={product._id} product={product} />
-            ))}
+            {loading ? (
+              <SmallLoading />
+            ) : (
+              products?.map((product) => (
+                <Product key={product?._id} product={product} />
+              ))
+            )}
           </div>
         </div>
       </div>
