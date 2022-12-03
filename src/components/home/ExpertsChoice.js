@@ -4,70 +4,11 @@ import GreyText from "../GreyText";
 import ExpertCard from "../cards/ExpertCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import useProducts from "../../utilities/useProducts";
+import SmallLoading from "../../shared/loading/SmallLoading";
 
 const ExpertsChoice = () => {
-  const choices = [
-    {
-      title: "Suede Bomber Jacket",
-      rating: {
-        rates: 4,
-        count: 249,
-      },
-      price: 252,
-      about: "Orange",
-      images: [
-        "/assets/experts/jackets/experts1.png",
-        "/assets/experts/jackets/experts2.png",
-        "/assets/experts/jackets/experts3.png",
-        "/assets/experts/jackets/experts4.png",
-      ],
-    },
-    {
-      title: "Downtown Pet Tote",
-      rating: {
-        rates: 2,
-        count: 133,
-      },
-      price: 749,
-      about: "Black & Orange",
-      images: [
-        "/assets/experts/totes/experts1.png",
-        "/assets/experts/totes/experts2.png",
-        "/assets/experts/totes/experts3.png",
-        "/assets/experts/totes/experts4.png",
-      ],
-    },
-    {
-      title: "Cader Lather Sneakers",
-      rating: {
-        rates: 5,
-        count: 1194,
-      },
-      price: 499,
-      about: "Chocolate",
-      images: [
-        "/assets/experts/sneakers/experts1.png",
-        "/assets/experts/sneakers/experts2.png",
-        "/assets/experts/sneakers/experts3.png",
-        "/assets/experts/sneakers/experts4.png",
-      ],
-    },
-    {
-      title: "Suede Bomber Jacket",
-      rating: {
-        rates: 4,
-        count: 249,
-      },
-      price: 252,
-      about: "Orange",
-      images: [
-        "/assets/experts/jackets/experts1.png",
-        "/assets/experts/jackets/experts2.png",
-        "/assets/experts/jackets/experts3.png",
-        "/assets/experts/jackets/experts4.png",
-      ],
-    },
-  ];
+  const { products, loading } = useProducts();
 
   // carousel configuration
   const responsive = {
@@ -104,9 +45,13 @@ const ExpertsChoice = () => {
         infinite={true}
         className="py-4 discover_carousel"
       >
-        {choices?.map((choice, index) => (
-          <ExpertCard key={index} product={choice} />
-        ))}
+        {loading ? (
+          <SmallLoading />
+        ) : (
+          products?.map((product) => (
+            <ExpertCard key={product?._id} product={product} />
+          ))
+        )}
       </Carousel>
     </PrimaryContainer>
   );
