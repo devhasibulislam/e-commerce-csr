@@ -7,7 +7,7 @@ const BannerUpdate = ({ banner, refetch }) => {
   const [title, setTitle] = useState(banner?.title);
   const [description, setDescription] = useState(banner?.description);
   const [url, setURL] = useState(banner?.url);
-  const [thumbnail, setThumbnail] = useState({});
+  const [thumbnail, setThumbnail] = useState(banner.thumbnail);
   const [thumbnailLoading, setThumbnailLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successfulState, setSuccessfulState] = useState(false);
