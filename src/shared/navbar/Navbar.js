@@ -36,7 +36,6 @@ const Navbar = () => {
   const items = [
     {
       title: "Categories",
-      // anchor: "/categories",
       subItems: true,
     },
     {
