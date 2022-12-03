@@ -11,10 +11,10 @@ const Motivation = () => {
           <Link to="/">
             <img src="/logo.png" alt="logo" width="112" loading="lazy" />
           </Link>
-          <h1 className="text-7xl font-extrabold">Earn free money with Ciseco</h1>
+          <h1 className="text-7xl font-extrabold">Earn free money with Canim</h1>
           <p>
             <GreyText>
-              With Ciseco you will get freeship & savings combo...
+              With Ciseco you will get free-ship & savings combo...
             </GreyText>
           </p>
           <div className="flex gap-x-4">

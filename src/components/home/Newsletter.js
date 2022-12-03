@@ -26,7 +26,7 @@ const Newsletter = () => {
       <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-x-12 gap-y-8 items-center">
         <div className="flex flex-col gap-y-8">
           <Link to="/">
-            <img src="/logo.svg" alt="logo" width="112" loading="lazy" />
+            <img src="/logo.png" alt="logo" width="112" loading="lazy" />
           </Link>
           <h1 className="text-7xl font-extrabold">
             Don't miss out on special offers

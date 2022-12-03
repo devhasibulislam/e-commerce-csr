@@ -114,7 +114,7 @@ const Blogs = () => {
   return (
     <section className="bg-[#f7f7f9] container mx-auto py-20 lg:px-20 md:px-10 px-4  rounded-3xl">
       <h1 className="lg:text-4xl md:text-2xl text-xl font-semibold mb-4">
-        The latest news. <GreyText>From the Ciseco blog</GreyText>
+        The latest news. <GreyText>From the Canim blog</GreyText>
       </h1>
       <Carousel
         responsive={responsive}

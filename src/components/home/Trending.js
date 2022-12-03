@@ -254,7 +254,7 @@ const Trending = () => {
         What is trending now?
       </h1>
       <p className="text-left">
-        <GreyText>Discover the most trending products in Ciseco.</GreyText>
+        <GreyText>Discover the most trending products in Canim.</GreyText>
       </p>
       <div className="mt-10">
         <div className="flex md:flex-row md:gap-y-0 gap-y-6 flex-col justify-between">
