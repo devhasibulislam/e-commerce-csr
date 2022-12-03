@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { OpenOverviewModal } from "../../pages/Home";
+import useRandomInt from "../../utilities/useRandomInt";
 
 const Product = ({ product }) => {
+  const { openModal, setOpenModal, setProduct } = useContext(OpenOverviewModal);
+
   return (
-    <section className="lg:p-6 md:p-6 p-2 hover:shadow rounded-xl flex flex-col gap-y-4">
-      <div className="relative">
-        <img
-          src={product.thumbnail}
-          alt={product.name}
-          loading="lazy"
-          className="h-[300px] w-full object-cover rounded-xl"
-        />
+    <section className="lg:p-6 md:p-6 p-2 hover:shadow rounded-xl flex flex-col gap-y-4 relative">
+      <div className="flex overflow-x-scroll overflow-y-hidden rounded-xl">
+        {product?.thumbnails?.map((thumbnail) => (
+          <img
+            key={thumbnail?._id}
+            src={thumbnail?.url}
+            alt={thumbnail?.public_id}
+            loading="lazy"
+            className="h-[300px] w-full object-cover rounded-xl"
+          />
+        ))}
         <span
-          className="tooltip tooltip-left tooltip-secondary absolute top-0 right-0 shadow rounded-full"
+          className="tooltip tooltip-left tooltip-secondary absolute top-6 right-6 shadow rounded-full"
           data-tip="Brief overview"
+          onClick={() => {
+            setOpenModal(!openModal);
+            setProduct(product);
+          }}
         >
           <span className="btn btn-sm btn-ghost btn-circle rounded-full">
             <svg
@@ -33,38 +44,42 @@ const Product = ({ product }) => {
       </div>
       <div className="flex flex-col gap-y-2">
         <h2 className="whitespace-nowrap text-ellipsis overflow-hidden font-medium">
-          {product.name}
+          {product?.title}
         </h2>
         <p className="flex items-center gap-x-2">
           Category:{" "}
           <span className="badge badge-outline">
-            {product.category}
+            {product?.category?.title}
           </span>
         </p>
         <p className="flex items-center gap-x-2">
           Rating:{" "}
           <span className="flex text-sm">
-            {[...Array(Math.round(product.ratings)).keys()]?.map((rating) => (
-              <svg
-                key={rating}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-5 h-5 text-secondary"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            ))}
-            ({product.ratingsCount})
+            {[...Array(Math.round(useRandomInt(1, 5))).keys()]?.map(
+              (rating) => (
+                <svg
+                  key={rating}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-5 h-5 text-secondary"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )
+            )}
+            ({useRandomInt(100, 990)})
           </span>
         </p>
         <p className="flex justify-between items-center">
           <p class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium">
-            <span class="text-green-500 !leading-none">${product.price}.00</span>
+            <span class="text-green-500 !leading-none">
+              ${product?.price}.00
+            </span>
           </p>
           <span
             className="tooltip tooltip-left tooltip-secondary shadow rounded-full"
