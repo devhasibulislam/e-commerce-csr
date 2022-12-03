@@ -17,7 +17,7 @@ const Promo = () => {
         />
         <div className="flex flex-col gap-y-8">
           <Link to="/">
-            <img src="/logo.svg" alt="logo" width="112" loading="lazy" />
+            <img src="/logo.png" alt="logo" width="112" loading="lazy" />
           </Link>
           <h1 className="text-7xl font-extrabold">
             Special offer in kids products
