@@ -1,39 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useRandomInt from "../../utilities/useRandomInt";
 import GreyText from "../GreyText";
 
 const ExpertCard = ({ product }) => {
+  const [thumbnails, setThumbnails] = useState([]);
+
+  useEffect(() => {
+    setThumbnails(product?.thumbnails);
+  }, [product?.thumbnails]);
+
   return (
     <section className="flex flex-col gap-y-8 p-6 hover:shadow rounded-xl">
       <div className="flex flex-col gap-y-4">
         <img
-          src={product.images[0]}
-          alt={product.title}
+          src={thumbnails[0]?.url}
+          alt={thumbnails[0]?.public_id}
           loading="lazy"
           className="bg-[#eef0f2] rounded-xl mx-auto h-[300px] w-full object-cover"
         />
         <div className="grid grid-cols-3 gap-x-4">
-          {product?.images?.map(
-            (image, index) =>
+          {thumbnails?.map(
+            (thumbnail, index) =>
               index !== 0 && (
                 <img
                   key={index}
-                  src={image}
-                  alt={product.title + index}
+                  src={thumbnail?.url}
+                  alt={thumbnail?.public_id}
                   loading="lazy"
+                  className="rounded-xl"
                 />
               )
           )}
         </div>
       </div>
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-lg whitespace-nowrap text-ellipsis overflow-hidden font-medium">
-            {product.title}
+      <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col">
+          <h2
+            className="text-lg whitespace-nowrap text-ellipsis overflow-hidden font-medium"
+            title={product?.title}
+          >
+            {product?.title}
           </h2>
           <p className="flex lg:flex-row flex-col md:gap-x-4 gap-x-2">
-            <GreyText>{product.about}</GreyText>
+            <span
+              className="tooltip tooltip-right"
+              data-tip={product?.description}
+            >
+              <GreyText>{product?.description?.slice(0, 30)}</GreyText>
+            </span>
             <span className="flex text-sm">
-              {[...Array(Math.round(product.rating.rates)).keys()]?.map(
+              {[...Array(Math.round(useRandomInt(1, 5))).keys()]?.map(
                 (rete) => (
                   <svg
                     key={rete}
@@ -50,12 +66,12 @@ const ExpertCard = ({ product }) => {
                   </svg>
                 )
               )}
-              ({product.rating.count})
+              ({useRandomInt(102, 993)})
             </span>
           </p>
         </div>
-        <p class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium">
-          <span class="text-green-500 !leading-none">$30.00</span>
+        <p class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium w-fit ml-auto">
+          <span class="text-green-500 !leading-none">${product?.price}.00</span>
         </p>
       </div>
     </section>
