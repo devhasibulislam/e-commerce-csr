@@ -29,13 +29,14 @@ const ProductOverview = ({ product }) => {
   return (
     <>
       <section className="grid lg:grid-cols-2 grid-cols-1 lg:gap-x-4 gap-y-4">
-        <div>
+        <div className="rounded-xl">
           <Carousel
             responsive={responsive}
             infinite={true}
             swipeable={true}
             draggable={true}
             arrows={true}
+            className="rounded-xl"
           >
             {product.thumbnails?.map((thumb) => (
               <img
