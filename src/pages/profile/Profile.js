@@ -5,6 +5,7 @@ import AccountMigration from "../../components/profile/AccountMigration";
 import ChangePassword from "../../components/profile/ChangePassword";
 import DeleteAccount from "../../components/profile/DeleteAccount";
 import EditProfile from "../../components/profile/EditProfile";
+import Wishlist from "../../components/profile/Wishlist";
 import Title from "../../components/Title";
 import Footer from "../../shared/footer/Footer";
 import Navbar from "../../shared/navbar/Navbar";
@@ -57,7 +58,7 @@ const Profile = () => {
 
         {tabState === "Account info" && <EditProfile />}
         {tabState === "Migrate Account" && <AccountMigration />}
-        {tabState === "My Wishlists" && <>My Wishlists</>}
+        {tabState === "My Wishlists" && <Wishlist />}
         {tabState === "Change password" && <ChangePassword />}
         {tabState === "Change billing" && <>Change billing</>}
         {tabState === "Delete account" && <DeleteAccount />}
