@@ -43,7 +43,7 @@ const ExpertCard = ({ product }) => {
           </h2>
           <p className="flex lg:flex-row flex-col md:gap-x-4 gap-x-2">
             <span
-              className="tooltip tooltip-right"
+              className="tooltip tooltip-right text-left"
               data-tip={product?.description}
             >
               <GreyText>{product?.description?.slice(0, 30)}</GreyText>
