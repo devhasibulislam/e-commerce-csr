@@ -5,8 +5,11 @@
 ## Technologies
 
 - React.js
-- React Router DOM
 - Tailwind CSS
+- React Router DOM
+- React Toastify
+- React Carousel
+- React Query
 
 # Deployment link
 
