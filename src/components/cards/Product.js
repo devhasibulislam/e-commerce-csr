@@ -15,7 +15,6 @@ const Product = ({ product }) => {
   const [favoritesId, setFavoritesId] = useState([]);
 
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     setInterval(() => {
@@ -38,7 +37,7 @@ const Product = ({ product }) => {
         {/* add to favorites */}
         {favoritesId?.includes(product?._id) ? (
           <button
-            class="w-9 h-9 flex items-center justify-center rounded-full shadow btn-ghost nc-shadow-lg absolute top-6 right-16 z-10"
+            class={`w-9 h-9 flex items-center justify-center rounded-full shadow btn-ghost nc-shadow-lg absolute ${location?.pathname === "/profile" ? "top-6 right-6" : "top-6 right-16"} z-10`}
             onClick={() => removeFromFavorites(product._id)}
           >
             <span className="tooltip" data-tip="Added to favorites">
@@ -54,7 +53,7 @@ const Product = ({ product }) => {
           </button>
         ) : (
           <button
-            class="w-9 h-9 flex items-center justify-center rounded-full shadow btn-ghost nc-shadow-lg absolute top-6 right-16 z-10"
+            class={`w-9 h-9 flex items-center justify-center rounded-full shadow btn-ghost nc-shadow-lg absolute top-6 right-16 z-10`}
             onClick={() => addToFavorites(product._id)}
           >
             <span className="tooltip" data-tip="Add to favorites">
