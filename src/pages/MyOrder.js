@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 import OrderSummaryCard from "../components/cards/OrderSummaryCard";
@@ -9,6 +11,10 @@ import Navbar from "../shared/navbar/Navbar";
 
 const MyOrder = () => {
   const user = useContext(UserContext);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    setProducts(JSON.parse(localStorage?.getItem("cart")));
+  }, []);
   const navigate = useNavigate();
 
   const changeButton = (
@@ -20,26 +26,7 @@ const MyOrder = () => {
     </button>
   );
 
-  const products = [
-    {
-      thumbnail: "/assets/summary/summary3.png",
-      name: "Red Nylon Backpack",
-      category: "Jacket",
-      price: 74,
-    },
-    {
-      thumbnail: "/assets/summary/summary2.png",
-      name: "Waffle Knit Beanie",
-      category: "Beanie",
-      price: 132,
-    },
-    {
-      thumbnail: "/assets/summary/summary1.png",
-      name: "Travel Pet Carrier",
-      category: "carrier",
-      price: 28,
-    },
-  ];
+  console.log(products);
 
   return (
     <>

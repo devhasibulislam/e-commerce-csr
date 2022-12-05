@@ -43,90 +43,95 @@ function App() {
   return loading ? (
     <Loading />
   ) : (
-    <UserContext.Provider value={user}>
-      <div className="App">
-        <Routes>
-          {/* home */}
-          <Route path="/" element={<Home />} />
+    <>
+      <UserContext.Provider value={user}>
+        <div className="App">
+          <Routes>
+            {/* home */}
+            <Route path="/" element={<Home />} />
 
-          {/* dashboard */}
-          <Route
-            path="/dashboard"
-            element={
-              <RequireAuth>
-                <Dashboard />
-              </RequireAuth>
-            }
-          >
-            <Route index element={<Analytics />} />
-            <Route path="add-new-product" element={<AddNewProduct />} />
-            <Route path="manage-products" element={<ManageProducts />} />
-            <Route path="add-new-category" element={<AddNewCategory />} />
-            <Route path="manage-categories" element={<ManageCategories />} />
-            <Route path="add-new-brand" element={<AddNewBrand />} />
-            <Route path="manage-brands" element={<ManageBrands />} />
-            <Route path="account-migrations" element={<AccountMigrations />} />
-            <Route path="manage-users" element={<ManageUsers />} />
-            <Route path="add-new-store" element={<AddNewStore />} />
-            <Route path="manage-stores" element={<ManageStores />} />
-            <Route path="add-new-stock" element={<AddNewStock />} />
-            <Route path="manage-stocks" element={<ManageStocks />} />
-            <Route path="add-new-banner" element={<AddNewBanner />} />
-            <Route path="manage-banners" element={<ManageBanners />} />
-            <Route path="add-new-review" element={<AddNewReview />} />
-            <Route path="manage-reviews" element={<ManageReviews />} />
-          </Route>
+            {/* dashboard */}
+            <Route
+              path="/dashboard"
+              element={
+                <RequireAuth>
+                  <Dashboard />
+                </RequireAuth>
+              }
+            >
+              <Route index element={<Analytics />} />
+              <Route path="add-new-product" element={<AddNewProduct />} />
+              <Route path="manage-products" element={<ManageProducts />} />
+              <Route path="add-new-category" element={<AddNewCategory />} />
+              <Route path="manage-categories" element={<ManageCategories />} />
+              <Route path="add-new-brand" element={<AddNewBrand />} />
+              <Route path="manage-brands" element={<ManageBrands />} />
+              <Route
+                path="account-migrations"
+                element={<AccountMigrations />}
+              />
+              <Route path="manage-users" element={<ManageUsers />} />
+              <Route path="add-new-store" element={<AddNewStore />} />
+              <Route path="manage-stores" element={<ManageStores />} />
+              <Route path="add-new-stock" element={<AddNewStock />} />
+              <Route path="manage-stocks" element={<ManageStocks />} />
+              <Route path="add-new-banner" element={<AddNewBanner />} />
+              <Route path="manage-banners" element={<ManageBanners />} />
+              <Route path="add-new-review" element={<AddNewReview />} />
+              <Route path="manage-reviews" element={<ManageReviews />} />
+            </Route>
 
-          {/* categories */}
-          <Route path="/categories" element={<Categories />} />
+            {/* categories */}
+            <Route path="/categories" element={<Categories />} />
 
-          {/* blogs */}
-          <Route path="/blogs" element={<Blogs />} />
+            {/* blogs */}
+            <Route path="/blogs" element={<Blogs />} />
 
-          {/* profile */}
-          <Route
-            path="/profile"
-            element={
-              <RequireAuth>
-                <Profile />
-              </RequireAuth>
-            }
+            {/* profile */}
+            <Route
+              path="/profile"
+              element={
+                <RequireAuth>
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+
+            {/* my orders */}
+            <Route
+              path="my-orders"
+              element={
+                <RequireAuth>
+                  <MyOrder />
+                </RequireAuth>
+              }
+            />
+
+            {/* account */}
+            <Route path="/sign-in" element={<Signin />} />
+            <Route path="/sign-up" element={<Signup />} />
+            <Route path="/reset-password" element={<Forgot />} />
+
+            {/* not found */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+
+          {/* alert toast */}
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
           />
-
-          {/* my orders */}
-          <Route
-            path="my-orders"
-            element={
-              <RequireAuth>
-                <MyOrder />
-              </RequireAuth>
-            }
-          />
-
-          {/* account */}
-          <Route path="/sign-in" element={<Signin />} />
-          <Route path="/sign-up" element={<Signup />} />
-          <Route path="/reset-password" element={<Forgot />} />
-
-          {/* not found */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-
-        {/* alert toast */}
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
-      </div>
-    </UserContext.Provider>
+        </div>
+      </UserContext.Provider>
+    </>
   );
 }
 

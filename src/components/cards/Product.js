@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { OpenOverviewModal } from "../../pages/Home";
+import { addToCart } from "../../utilities/useCart";
 import {
   addToFavorites,
   removeFromFavorites,
@@ -71,7 +72,9 @@ const Product = ({ product }) => {
           </button>
         )}
         {/* brief overview */}
-        {location?.pathname === "/profile" ? <></> : (
+        {location?.pathname === "/profile" ? (
+          <></>
+        ) : (
           <button
             class="w-9 h-9 flex items-center justify-center rounded-full shadow btn-ghost nc-shadow-lg absolute top-6 right-6 z-10"
             onClick={() => {
@@ -136,9 +139,11 @@ const Product = ({ product }) => {
               ${product?.price}.00
             </span>
           </p>
+          {/* add to cart */}
           <span
             className="tooltip tooltip-left tooltip-secondary shadow rounded-full"
             data-tip="Add to cart"
+            onClick={() => addToCart(product, 1)}
           >
             <span className="btn btn-sm btn-primary btn-circle text-white rounded-full">
               <svg

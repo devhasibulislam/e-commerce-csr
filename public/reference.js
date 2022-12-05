@@ -31,4 +31,8 @@
  *
  * In Mongoose, how do I sort by date? (node.js)
  * https://stackoverflow.com/questions/5825520/in-mongoose-how-do-i-sort-by-date-node-js
+ *
+ * Error message "error:0308010C:digital envelope routines::unsupported"
+ * https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported
+ * https://www.freecodecamp.org/news/error-error-0308010c-digital-envelope-routines-unsupported-node-error-solved/
  */

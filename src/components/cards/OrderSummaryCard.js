@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 
 const OrderSummaryCard = ({ product }) => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(product?.quantity);
 
   return (
     <section className="flex justify-between shadow lg:w-2/3 p-4 rounded-lg">
       <div className="flex md:flex-row flex-col gap-x-4">
         <img
-          src={product.thumbnail}
-          alt={product.title}
-          className="h-[144px] object-cover bg-[#f1f5f9] rounded-xl shadow-sm"
+          src={product?.thumbnails[0]?.url}
+          alt={product?.thumbnails[0]?.public_id}
+          className="h-36 w-24 object-cover bg-[#f1f5f9] rounded-xl shadow-sm"
         />
         <div className="flex flex-col justify-between lg:gap-y-0 md:gap-y-0 gap-y-4">
           <div className="flex flex-col gap-y-4">
-            <h2 className="text-lg font-medium whitespace-nowrap text-ellipsis overflow-hidden">
-              {product.name}
+            <h2 className="text-lg font-medium whitespace-nowrap text-ellipsis overflow-hidden w-1/2" title={product?.title}>
+              {product?.title}
             </h2>
-            <p className="badge">{product.category}</p>
+            <p className="badge">{product?.category?.title}</p>
           </div>
           <div className="flex gap-x-4 items-center">
             {/* minus */}

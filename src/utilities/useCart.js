@@ -1,3 +1,10 @@
+function addToCart(product, quantity) {
+  const cart = getFromCart();
+  product.quantity = quantity;
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 function getFromCart() {
   const cart = localStorage.getItem("cart");
   let items = null;
@@ -11,4 +18,10 @@ function getFromCart() {
   return items;
 }
 
-export { getFromCart };
+function removeFromCart(id) {
+  const products = getFromCart();
+  const cart = products.filter((product) => product._id !== id);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+export { addToCart, getFromCart, removeFromCart };
