@@ -4,20 +4,29 @@ const OrderSummaryCard = ({ product }) => {
   const [quantity, setQuantity] = useState(product?.quantity);
 
   return (
-    <section className="flex justify-between shadow lg:w-2/3 p-4 rounded-lg">
-      <div className="flex md:flex-row flex-col gap-x-4">
+    <section className="shadow p-4 rounded-xl flex lg:flex-row md:flex-row flex-col lg:gap-x-0 md:gap-x-0 gap-y-4">
+      {/* card left */}
+      <div className="flex lg:flex-row md:flex-row flex-col lg:gap-x-4 md:gap-x-4 gap-y-4">
+        {/* card thumbnail */}
         <img
           src={product?.thumbnails[0]?.url}
           alt={product?.thumbnails[0]?.public_id}
-          className="h-36 w-24 object-cover bg-[#f1f5f9] rounded-xl shadow-sm"
+          className="h-36 object-cover bg-[#f1f5f9] rounded-xl shadow-sm"
         />
         <div className="flex flex-col justify-between lg:gap-y-0 md:gap-y-0 gap-y-4">
-          <div className="flex flex-col gap-y-4">
-            <h2 className="text-lg font-medium whitespace-nowrap text-ellipsis overflow-hidden w-1/2" title={product?.title}>
+          {/* card upper portion */}
+          <div>
+            {/* card title */}
+            <h2
+              className="text-lg font-medium whitespace-nowrap text-ellipsis overflow-hidden lg:w-1/2 md:w-3/4 w-full"
+              title={product?.title}
+            >
               {product?.title}
             </h2>
+            {/* card category */}
             <p className="badge">{product?.category?.title}</p>
           </div>
+          {/* card lower portion */}
           <div className="flex gap-x-4 items-center">
             {/* minus */}
             <button
@@ -65,11 +74,15 @@ const OrderSummaryCard = ({ product }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-between">
-        <p className="text-sm badge badge-outline badge-success py-4 px-5 rounded-lg">
-          $<span className="text-xl font-medium">{product.price * quantity}</span>
-        </p>
-        <button className="btn btn-sm btn-outline capitalize">Remove</button>
+
+      {/* card right */}
+      <div className="flex lg:flex-col md:flex-col flex-row justify-between">
+        <div class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium">
+          <span class="text-green-500 !leading-none">
+            ${product.price * quantity}.00
+          </span>
+        </div>
+        <button className="btn btn-sm btn-outline btn-error capitalize">Remove</button>
       </div>
     </section>
   );
