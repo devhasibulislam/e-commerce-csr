@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
 import Product from "../cards/Product";
-import useProducts from "../../utilities/useProducts";
+import useProducts from "../../hooks/useProducts";
 import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Trending = () => {

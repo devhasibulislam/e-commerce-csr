@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useRandomInt from "../../utilities/useRandomInt";
+import useRandomInt from "../../hooks/useRandomInt";
 import GreyText from "../GreyText";
 
 const ExpertCard = ({ product }) => {

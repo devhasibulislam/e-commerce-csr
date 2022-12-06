@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import TinyLoading from "../shared/loading/TinyLoading";
 import { ItemContext } from "../shared/navbar/Navbar";
-import useCategories from "../utilities/useCategories";
+import useCategories from "../hooks/useCategories";
 
 const NavDropdown = () => {
   const { categories, loading } = useCategories();

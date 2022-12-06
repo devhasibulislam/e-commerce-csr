@@ -5,7 +5,7 @@ import BrandUpdate from "../../../components/dashboard/brand/BrandUpdate";
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
-import useBrands from "../../../utilities/useBrands";
+import useBrands from "../../../hooks/useBrands";
 
 const ManageBrands = () => {
   const [loading, setLoading] = useState(false);

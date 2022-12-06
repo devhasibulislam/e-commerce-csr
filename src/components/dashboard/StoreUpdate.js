@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import TinyLoading from "../../shared/loading/TinyLoading";
-import useSellers from "../../utilities/useSellers";
+import useSellers from "../../hooks/useSellers";
 import Button from "../Button";
 
 const StoreUpdate = ({ store }) => {
   const [title, setTitle] = useState(store.title);
   const [description, setDescription] = useState(store.description);
   const [status, setStatus] = useState(store.status);
-  const [sellers, setSellers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { users, loading: usersLoading } = useSellers();
+  const { sellers, loading: usersLoading, refetch } = useSellers();
 
   function handleUpdateStore(event) {
     event.preventDefault();
@@ -19,23 +19,27 @@ const StoreUpdate = ({ store }) => {
       title: title,
       description: description,
       status: status,
-      sellers: sellers,
+      sellers: users,
     };
 
     const updateSpecificStore = async () => {
       setLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/store/${store?._id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(storeInfo),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/store/${store?._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(storeInfo),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
         setLoading(false);
+        refetch();
       } else {
         toast.error(response.description);
         setLoading(false);
@@ -46,7 +50,7 @@ const StoreUpdate = ({ store }) => {
 
   useEffect(() => {
     const storeSellers = store?.sellers?.map((seller) => seller._id);
-    setSellers(storeSellers);
+    setUsers(storeSellers);
   }, [store?.sellers]);
 
   return (
@@ -89,14 +93,14 @@ const StoreUpdate = ({ store }) => {
           <select
             className="select select-bordered w-full"
             onChange={(e) =>
-              setSellers((sellers) => [...sellers, e.target.value])
+              setUsers((sellers) => [...sellers, e.target.value])
             }
           >
-            {users?.map((seller) => (
+            {sellers?.map((seller) => (
               <option
                 key={seller._id}
                 value={seller._id}
-                disabled={sellers.includes(seller._id)}
+                disabled={users.includes(seller._id)}
                 className="capitalize"
               >
                 {seller.name}

@@ -3,12 +3,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { OpenOverviewModal } from "../../pages/Home";
-import { addToCart } from "../../utilities/useCart";
+import { addToCart } from "../../hooks/useCart";
 import {
   addToFavorites,
   removeFromFavorites,
-} from "../../utilities/useFavorite";
-import useRandomInt from "../../utilities/useRandomInt";
+} from "../../hooks/useFavorite";
+import useRandomInt from "../../hooks/useRandomInt";
 
 const Product = ({ product }) => {
   const { openModal, setOpenModal, setProduct } = useContext(OpenOverviewModal);

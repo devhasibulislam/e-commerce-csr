@@ -4,13 +4,13 @@ import Button from "../../../components/Button";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
 import TinyLoading from "../../../shared/loading/TinyLoading";
-import useSellers from "../../../utilities/useSellers";
+import useSellers from "../../../hooks/useSellers";
 
 const AddNewStore = () => {
   const [seller, setSeller] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const { users, loading: usersLoading } = useSellers();
+  const { sellers, loading: sellersLoading, refetch } = useSellers();
 
   function handleAddNewStore(event) {
     event.preventDefault();
@@ -35,6 +35,7 @@ const AddNewStore = () => {
       if (response.acknowledgement) {
         setLoading(false);
         toast.success(response.description);
+        refetch();
         event.target.reset();
       } else {
         setLoading(false);
@@ -77,7 +78,7 @@ const AddNewStore = () => {
         </div>
 
         {/* sellers box */}
-        {users?.length === 0 ? (
+        {sellers?.length === 0 ? (
           <div className="alert alert-info shadow-lg w-full lg:w-3/4">
             <div>
               <svg
@@ -96,7 +97,7 @@ const AddNewStore = () => {
               <span>No seller existing found!</span>
             </div>
           </div>
-        ) : usersLoading ? (
+        ) : sellersLoading ? (
           <TinyLoading />
         ) : (
           <div className="form-control">
@@ -112,7 +113,7 @@ const AddNewStore = () => {
               <option disabled selected>
                 Choose a seller
               </option>
-              {users?.map((user) =>
+              {sellers?.map((user) =>
                 !seller.includes(user._id) ? (
                   <option
                     key={user._id}

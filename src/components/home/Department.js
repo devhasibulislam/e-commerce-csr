@@ -3,7 +3,7 @@ import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import useBrands from "../../utilities/useBrands";
+import useBrands from "../../hooks/useBrands";
 import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Department = () => {

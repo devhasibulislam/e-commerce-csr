@@ -4,8 +4,8 @@ import Button from "../../../components/Button";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
 import TinyLoading from "../../../shared/loading/TinyLoading";
-import useBrands from "../../../utilities/useBrands";
-import useCategories from "../../../utilities/useCategories";
+import useBrands from "../../../hooks/useBrands";
+import useCategories from "../../../hooks/useCategories";
 
 const AddNewProduct = () => {
   const [thumbnails, setThumbnails] = useState([]);

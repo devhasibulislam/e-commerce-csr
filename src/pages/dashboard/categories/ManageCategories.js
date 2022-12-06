@@ -5,7 +5,7 @@ import CategoryUpdate from "../../../components/dashboard/category/CategoryUpdat
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
-import useCategories from "../../../utilities/useCategories";
+import useCategories from "../../../hooks/useCategories";
 
 const ManageCategories = () => {
   const [loading, setLoading] = useState(false);

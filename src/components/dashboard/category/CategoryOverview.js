@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TinyLoading from "../../../shared/loading/TinyLoading";
-import useProducts from "../../../utilities/useProducts";
+import useProducts from "../../../hooks/useProducts";
 
 const CategoryOverview = ({ category }) => {
   const [expandState, setExpandState] = useState(true);

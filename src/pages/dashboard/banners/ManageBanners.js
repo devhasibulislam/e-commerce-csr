@@ -5,7 +5,7 @@ import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
 import TinyLoading from "../../../shared/loading/TinyLoading";
-import useBanners from "../../../utilities/useBanners";
+import useBanners from "../../../hooks/useBanners";
 
 const ManageBanners = () => {
   const { banners, loading: bannersLoading, refetch } = useBanners();

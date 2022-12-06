@@ -4,7 +4,7 @@ import StockUpdate from "../../../components/dashboard/StockUpdate";
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
-import useStocks from "../../../utilities/useStocks";
+import useStocks from "../../../hooks/useStocks";
 
 const ManageStocks = () => {
   const { stocks, loading: stocksLoading } = useStocks();

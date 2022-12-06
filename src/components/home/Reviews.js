@@ -4,7 +4,7 @@ import GreyText from "../GreyText";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ReviewCard from "../cards/ReviewCard";
-import useReviews from "../../utilities/useReviews";
+import useReviews from "../../hooks/useReviews";
 import SmallLoading from "../../shared/loading/SmallLoading";
 
 const Reviews = () => {

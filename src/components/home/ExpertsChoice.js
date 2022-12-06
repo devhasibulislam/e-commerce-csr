@@ -4,7 +4,7 @@ import GreyText from "../GreyText";
 import ExpertCard from "../cards/ExpertCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import useProducts from "../../utilities/useProducts";
+import useProducts from "../../hooks/useProducts";
 import SmallLoading from "../../shared/loading/SmallLoading";
 
 const ExpertsChoice = () => {

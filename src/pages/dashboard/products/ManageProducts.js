@@ -5,7 +5,7 @@ import ProductOverview from "../../../components/dashboard/product/ProductOvervi
 import ProductUpdate from "../../../components/dashboard/product/ProductUpdate";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
-import useProducts from "../../../utilities/useProducts";
+import useProducts from "../../../hooks/useProducts";
 
 const ManageProducts = () => {
   const [loading, setLoading] = useState(false);

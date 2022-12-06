@@ -4,7 +4,7 @@ import StoreUpdate from "../../../components/dashboard/StoreUpdate";
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
-import useStores from "../../../utilities/useStores";
+import useStores from "../../../hooks/useStores";
 
 const ManageStores = () => {
   const [loading, setLoading] = useState(false);

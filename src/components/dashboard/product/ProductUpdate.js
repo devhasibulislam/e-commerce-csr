@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import TinyLoading from "../../../shared/loading/TinyLoading";
-import useBrands from "../../../utilities/useBrands";
-import useCategories from "../../../utilities/useCategories";
+import useBrands from "../../../hooks/useBrands";
+import useCategories from "../../../hooks/useCategories";
 import Button from "../../Button";
 
 const ProductUpdate = ({ product }) => {

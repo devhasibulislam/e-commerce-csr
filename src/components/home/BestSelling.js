@@ -1,6 +1,6 @@
 import React from "react";
 import SmallLoading from "../../shared/loading/SmallLoading";
-import useProducts from "../../utilities/useProducts";
+import useProducts from "../../hooks/useProducts";
 import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
 import ProductCarousel from "../ProductCarousel";

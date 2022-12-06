@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TinyLoading from "../../../shared/loading/TinyLoading";
-import useProducts from "../../../utilities/useProducts";
+import useProducts from "../../../hooks/useProducts";
 // import useSuppliers from "../../../utilities/useSuppliers";
 
 const BrandOverview = ({ brand }) => {

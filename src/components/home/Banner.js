@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 import SmallLoading from "../../shared/loading/SmallLoading";
-import useBanners from "../../utilities/useBanners";
+import useBanners from "../../hooks/useBanners";
 
 const Banner = () => {
   const { banners, loading } = useBanners();

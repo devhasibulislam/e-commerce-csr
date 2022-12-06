@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import SmallLoading from "../../shared/loading/SmallLoading";
-import useProducts from "../../utilities/useProducts";
+import useProducts from "../../hooks/useProducts";
 import Product from "../cards/Product";
 
 const Wishlist = () => {

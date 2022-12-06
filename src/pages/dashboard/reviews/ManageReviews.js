@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import Title from "../../../components/Title";
 import SmallLoading from "../../../shared/loading/SmallLoading";
 import TinyLoading from "../../../shared/loading/TinyLoading";
-import useReviews from "../../../utilities/useReviews";
+import useReviews from "../../../hooks/useReviews";
 
 const ManageReviews = () => {
   const { reviews, loading: reviewsLoading, refetch } = useReviews();

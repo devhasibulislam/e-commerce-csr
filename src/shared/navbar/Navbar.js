@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../components/Logo";
 import NavDropdown from "../../components/NavDropdown";
-import useMyself from "../../utilities/useMyself";
+import useMyself from "../../hooks/useMyself";
 import Cart from "./Cart";
 import Dropdown from "./Dropdown";
 import Searchbar from "./Searchbar";
