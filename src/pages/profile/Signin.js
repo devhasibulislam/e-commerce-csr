@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../App";
 import SmallLoading from "../../shared/loading/SmallLoading";
+import { useEffect } from "react";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -16,7 +17,9 @@ const Signin = () => {
 
   let from = location.state?.from?.pathname || "/";
 
-  if (user) navigate(from, { replace: true });
+  useEffect(() => {
+    if (user) navigate(from, { replace: true });
+  }, [from, navigate, user]);
 
   function handleSigninForm(event) {
     event.preventDefault();
@@ -28,13 +31,16 @@ const Signin = () => {
 
     const signinUser = async () => {
       setLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/sign-in`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(userInformation),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/user/sign-in`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInformation),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         localStorage.setItem("accessToken", response.accessToken);

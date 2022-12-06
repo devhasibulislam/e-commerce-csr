@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import TinyLoading from "../../shared/loading/TinyLoading";
 import SmallLoading from "../../shared/loading/SmallLoading";
 import { UserContext } from "../../App";
+import { useEffect } from "react";
 
 const Signup = () => {
   const [avatarLoading, setAvatarLoading] = useState(false);
@@ -16,7 +17,9 @@ const Signup = () => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
-  if (Object.keys(user).length !== 0) navigate("/");
+  useEffect(() => {
+    if (user === undefined) navigate("/");
+  }, [navigate, user]);
 
   // upload avatar
   function handleUserAvatar(event) {
@@ -25,10 +28,13 @@ const Signup = () => {
 
     const uploadAvatar = async () => {
       setAvatarLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/avatar`, {
-        method: "POST",
-        body: formData,
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/user/avatar`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -60,13 +66,16 @@ const Signup = () => {
 
     const signupUser = async () => {
       setUserLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/user/sign-up`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(userInformation),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/user/sign-up`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInformation),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);

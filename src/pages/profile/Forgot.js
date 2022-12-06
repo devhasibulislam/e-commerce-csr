@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../App";
@@ -13,7 +13,9 @@ const Forgot = () => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
-  if (Object.keys(user).length !== 0) navigate("/");
+  useEffect(() => {
+    if (user === undefined) navigate("/");
+  }, [navigate, user]);
 
   function handleResetPassword(event) {
     event.preventDefault();
