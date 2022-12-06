@@ -31,13 +31,13 @@ const Searchbar = () => {
       </label>
       <div
         tabIndex={0}
-        className="mt-3 card card-compact dropdown-content w-96 bg-base-100 shadow p-4"
+        className="mt-3 card card-compact dropdown-content lg:w-96 md:w-96 bg-base-100 shadow p-4"
       >
         <input
           type="text"
           name="search"
           placeholder="Type product or category name"
-          className="input input-bordered w-full"
+          className="input input-bordered lg:w-full md:w-full"
         />
       </div>
     </div>
