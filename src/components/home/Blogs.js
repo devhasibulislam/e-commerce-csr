@@ -2,7 +2,7 @@ import React from "react";
 import GreyText from "../GreyText";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import BlogCard from "../container/BlogCard";
+import BlogCard from "../cards/BlogCard";
 
 const Blogs = () => {
   // carousel data
