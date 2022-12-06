@@ -6,22 +6,22 @@ const ExploreCards = ({ category }) => {
   return (
     <section
       className="flex flex-col gap-y-8 bg-white p-12 rounded-2xl hover:shadow bg-right-bottom bg-no-repeat bg-contain"
-      style={{ backgroundImage: `url(${category.backgroundImage})` }}
+      style={{ backgroundImage: `url(${category?.backgroundImage})` }}
     >
       <div className="flex justify-between items-center">
         <img
-          src={category.image}
-          alt={category.title}
+          src={category?.image}
+          alt={category?.title}
           loading="lazy"
           className="w-[80px] h-[80px] object-cover rounded-full shadow-xl"
         />
-        <span>{category.productCount} products</span>
+        <span>{category?.productCount} products</span>
       </div>
       <div>
-        <GreyText>{category.title}</GreyText>
-        <h2 className="text-2xl font-medium">{category.header}</h2>
+        <GreyText>{category?.title}</GreyText>
+        <h2 className="text-2xl font-medium">{category?.header}</h2>
       </div>
-      <Link to={category.anchor} className="flex gap-x-2 items-center">
+      <Link to={category?.anchor} className="flex gap-x-2 items-center">
         See collection{" "}
         <svg
           xmlns="http://www.w3.org/2000/svg"

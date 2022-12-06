@@ -38,7 +38,7 @@ const Product = ({ product }) => {
         {favoritesId?.includes(product?._id) ? (
           <button
             class={`w-9 h-9 flex items-center justify-center rounded-full shadow btn-ghost nc-shadow-lg absolute ${location?.pathname === "/profile" ? "top-6 right-6" : "top-6 right-16"} z-10`}
-            onClick={() => removeFromFavorites(product._id)}
+            onClick={() => removeFromFavorites(product?._id)}
           >
             <span className="tooltip" data-tip="Added to favorites">
               <svg
@@ -54,7 +54,7 @@ const Product = ({ product }) => {
         ) : (
           <button
             class={`w-9 h-9 flex items-center justify-center rounded-full shadow btn-ghost nc-shadow-lg absolute top-6 right-16 z-10`}
-            onClick={() => addToFavorites(product._id)}
+            onClick={() => addToFavorites(product?._id)}
           >
             <span className="tooltip" data-tip="Add to favorites">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
