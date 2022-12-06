@@ -6,7 +6,7 @@ const RequireAuth = ({ children }) => {
   const user = useContext(UserContext);
   let location = useLocation();
 
-  if (Object?.keys(user)?.length === 0) {
+  if (user === undefined) {
     return <Navigate to="/sign-in" state={{ from: location }} replace />;
   }
 
