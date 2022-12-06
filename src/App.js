@@ -38,7 +38,7 @@ import "./App.css";
 export const UserContext = React.createContext({});
 
 function App() {
-  const [user, loading] = useMyself(localStorage?.getItem("accessToken"));
+  const { user, loading } = useMyself(localStorage?.getItem("accessToken"));
 
   return loading ? (
     <Loading />

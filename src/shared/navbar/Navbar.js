@@ -13,7 +13,7 @@ export const ItemContext = React.createContext([]);
 const Navbar = () => {
   const [dropdownState, setDropdownState] = useState(false);
   const [selectDropdownState, setSelectDropdownState] = useState("");
-  const [user, loading] = useMyself(localStorage?.getItem("accessToken"));
+  const { user, loading } = useMyself(localStorage?.getItem("accessToken"));
 
   const arrow = (
     <svg
