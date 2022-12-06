@@ -10,7 +10,7 @@ function useStocks() {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       }).then((res) => res.json()),
-      refetchInterval: 1000
+    refetchInterval: 1000,
   });
 
   return { stocks: data?.data, loading: isLoading };
