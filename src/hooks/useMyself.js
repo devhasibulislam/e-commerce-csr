@@ -1,34 +1,18 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 function useMyself(token) {
-  const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(false);
+  const { data, isLoading } = useQuery({
+    queryKey: ["user"],
+    queryFn: () =>
+      fetch("https://e-commerce-ssr.onrender.com/user/myself", {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }).then((res) => res.json()),
+  });
 
-  useEffect(() => {
-    const getMyself = async () => {
-      setLoading(true);
-      const request = await fetch(
-        `https://e-commerce-ssr.onrender.com/user/myself`,
-        {
-          method: "GET",
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      const response = await request.json();
-      if (response.acknowledgement) {
-        setUser(response?.data);
-        setLoading(false);
-      } else {
-        console.log(response.description);
-        setLoading(false);
-      }
-    };
-    getMyself();
-  }, [token]);
-
-  return [user, loading];
+  return { user: data?.data, loading: isLoading };
 }
 
 export default useMyself;
