@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import TinyLoading from "../shared/loading/TinyLoading";
 import { ItemContext } from "../shared/navbar/Navbar";
 import useCategories from "../hooks/useCategories";
+import LoadingSM from "../shared/loading/LoadingSM";
 
 const NavDropdown = () => {
   const { categories, loading } = useCategories();
@@ -17,7 +17,7 @@ const NavDropdown = () => {
       }}
     >
       {loading ? (
-        <TinyLoading />
+        <LoadingSM size={16} />
       ) : (
         categories?.map((category) => (
           <div
@@ -31,7 +31,10 @@ const NavDropdown = () => {
             />
             <article className="flex flex-col gap-y-1">
               <h2 className="font-medium capitalize">{category?.title}</h2>
-              <p className="text-gray-500 capitalize text-left" title={category.description}>
+              <p
+                className="text-gray-500 capitalize text-left"
+                title={category.description}
+              >
                 {category.description.slice(0, 30) + "..."}
               </p>
             </article>

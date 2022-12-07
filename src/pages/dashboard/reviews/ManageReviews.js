@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
-import TinyLoading from "../../../shared/loading/TinyLoading";
 import useReviews from "../../../hooks/useReviews";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ManageReviews = () => {
   const { reviews, loading: reviewsLoading, refetch } = useReviews();
@@ -39,12 +38,12 @@ const ManageReviews = () => {
     <section>
       <Title>Manage Reviews</Title>
       {reviewsLoading ? (
-        <SmallLoading />
+        <LoadingSM size={24} />
       ) : (
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
           {reviews?.map((review) =>
             loading ? (
-              <TinyLoading />
+              <LoadingSM size={16} />
             ) : (
               <div key={review?._id} class="p-4 w-full relative">
                 <div class="h-full bg-gray-100 p-8 rounded">

@@ -4,8 +4,8 @@ import BrandOverview from "../../../components/dashboard/brand/BrandOverview";
 import BrandUpdate from "../../../components/dashboard/brand/BrandUpdate";
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
 import useBrands from "../../../hooks/useBrands";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ManageBrands = () => {
   const [loading, setLoading] = useState(false);
@@ -46,7 +46,7 @@ const ManageBrands = () => {
       <Title>Manage Brands</Title>
       <div className="overflow-x-auto">
         {brandLoading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           <table className="table w-full">
             <thead>

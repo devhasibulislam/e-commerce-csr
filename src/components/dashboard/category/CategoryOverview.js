@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import TinyLoading from "../../../shared/loading/TinyLoading";
 import useProducts from "../../../hooks/useProducts";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const CategoryOverview = ({ category }) => {
   const [expandState, setExpandState] = useState(true);
@@ -126,7 +126,7 @@ const CategoryOverview = ({ category }) => {
               products?.map((product) =>
                 product.category._id === category._id ? (
                   isLoading ? (
-                    <TinyLoading />
+                    <LoadingSM size={16} />
                   ) : (
                     <div key={product._id}>
                       <div className="flex gap-x-4">

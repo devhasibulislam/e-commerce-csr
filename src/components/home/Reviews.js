@@ -5,7 +5,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ReviewCard from "../cards/ReviewCard";
 import useReviews from "../../hooks/useReviews";
-import SmallLoading from "../../shared/loading/SmallLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const Reviews = () => {
   const { reviews, loading } = useReviews();
@@ -47,7 +47,7 @@ const Reviews = () => {
         className="py-4 discover_carousel"
       >
         {loading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           reviews?.map((review, index) => (
             <ReviewCard key={index} review={review} />

@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { UserContext } from "../../App";
-import SmallLoading from "../../shared/loading/SmallLoading";
-import TinyLoading from "../../shared/loading/TinyLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 import AccountButton from "./AccountButton";
 
 const EditProfile = () => {
@@ -103,7 +102,7 @@ const EditProfile = () => {
   return (
     <section className="grid lg:grid-cols-2 grid-cols-1">
       {userLoading ? (
-        <SmallLoading />
+        <LoadingSM size={24} />
       ) : (
         <form
           className="flex flex-col gap-y-4"
@@ -345,7 +344,7 @@ const EditProfile = () => {
 
           {/* avatar upload field */}
           {avatarLoading ? (
-            <TinyLoading />
+            <LoadingSM size={16} />
           ) : avatar === null ? (
             <div className="flex items-center justify-center w-full mt-4">
               <label

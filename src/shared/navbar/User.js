@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LazyLoading from "../loading/LazyLoading";
+import LoadingSM from "../loading/LoadingSM";
 import { ItemContext } from "./Navbar";
 
 const User = () => {
@@ -140,7 +140,7 @@ const User = () => {
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar shadow">
         {loading ? (
-          <LazyLoading />
+          <LoadingSM size={8} />
         ) : (
           <div className="w-10 rounded-full">
             <img

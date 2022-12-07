@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Button from "../../../components/Button";
 import Title from "../../../components/Title";
-import TinyLoading from "../../../shared/loading/TinyLoading";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const AddNewBanner = () => {
   const [thumbnailsLoading, setThumbnailsLoading] = useState(false);
@@ -119,7 +119,7 @@ const AddNewBanner = () => {
         {/* banner thumbnail */}
         {thumbnailsLoading === true ? (
           <div className="w-full lg:w-3/4">
-            <TinyLoading />
+            <LoadingSM size={16} />
           </div>
         ) : (
           <div className="form-control">
@@ -162,7 +162,7 @@ const AddNewBanner = () => {
           </div>
         )}
 
-        {loading ? <TinyLoading /> : <Button>Add new banner</Button>}
+        {loading ? <LoadingSM size={16} /> : <Button>Add new banner</Button>}
       </form>
     </section>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import TinyLoading from "../../../shared/loading/TinyLoading";
 import useProducts from "../../../hooks/useProducts";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 // import useSuppliers from "../../../utilities/useSuppliers";
 
 const BrandOverview = ({ brand }) => {
@@ -126,7 +126,7 @@ const BrandOverview = ({ brand }) => {
               products?.map((product) =>
                 product.brand._id === brand._id ? (
                   productLoading ? (
-                    <TinyLoading />
+                    <LoadingSM size={16} />
                   ) : (
                     <div key={product._id}>
                       <div className="flex gap-x-4">
@@ -241,7 +241,7 @@ const BrandOverview = ({ brand }) => {
               products?.map((product) =>
                 product.brand._id === brand._id ? (
                   productLoading ? (
-                    <TinyLoading />
+                    <LoadingSM size={16} />
                   ) : (
                     <div key={product._id}>
                       <div className="flex gap-x-4">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import TinyLoading from "../../shared/loading/TinyLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 import Button from "../Button";
 
 const BannerUpdate = ({ banner, refetch }) => {
@@ -133,7 +133,7 @@ const BannerUpdate = ({ banner, refetch }) => {
         {/* stock thumbnails */}
         {thumbnailLoading === true ? (
           <div className="w-full">
-            <TinyLoading />
+            <LoadingSM size={16} />
           </div>
         ) : (
           <div className="form-control">
@@ -176,7 +176,7 @@ const BannerUpdate = ({ banner, refetch }) => {
           </div>
         )}
 
-        {loading ? <TinyLoading /> : <Button>Update banner</Button>}
+        {loading ? <LoadingSM size={16} /> : <Button>Update banner</Button>}
       </form>
     </>
   );

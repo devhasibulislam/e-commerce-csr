@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import TinyLoading from "../../../shared/loading/TinyLoading";
 import useBrands from "../../../hooks/useBrands";
 import useCategories from "../../../hooks/useCategories";
 import Button from "../../Button";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ProductUpdate = ({ product }) => {
   const [thumbnails, setThumbnails] = useState([]);
@@ -126,7 +126,7 @@ const ProductUpdate = ({ product }) => {
 
         {/* product category */}
         {categoryLoading ? (
-          <TinyLoading />
+          <LoadingSM size={16} />
         ) : (
           <div className="form-control">
             <label className="label">
@@ -151,7 +151,7 @@ const ProductUpdate = ({ product }) => {
 
         {/* product brand */}
         {brandLoading ? (
-          <TinyLoading />
+          <LoadingSM size={16} />
         ) : (
           <div className="form-control">
             <label className="label">
@@ -191,7 +191,7 @@ const ProductUpdate = ({ product }) => {
         {/* product thumbnails */}
         {thumbnailsLoading === true ? (
           <div className="w-full">
-            <TinyLoading />
+            <LoadingSM size={16} />
           </div>
         ) : (
           <div className="form-control">
@@ -236,7 +236,7 @@ const ProductUpdate = ({ product }) => {
           </div>
         )}
 
-        {loading ? <TinyLoading /> : <Button>Update product</Button>}
+        {loading ? <LoadingSM size={16} /> : <Button>Update product</Button>}
       </form>
     </>
   );

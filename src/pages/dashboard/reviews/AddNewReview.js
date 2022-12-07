@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
 import Button from "../../../components/Button";
 import Title from "../../../components/Title";
-import TinyLoading from "../../../shared/loading/TinyLoading";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const AddNewReview = () => {
   const user = useContext(UserContext);
@@ -87,7 +87,7 @@ const AddNewReview = () => {
           />
         </div>
 
-        {loading ? <TinyLoading /> : <Button>Add review</Button>}
+        {loading ? <LoadingSM size={16} /> : <Button>Add review</Button>}
       </form>
     </section>
   );

@@ -5,10 +5,9 @@ import AccountBanner from "../../components/profile/AccountBanner";
 import AccountButton from "../../components/profile/AccountButton";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import TinyLoading from "../../shared/loading/TinyLoading";
-import SmallLoading from "../../shared/loading/SmallLoading";
 import { UserContext } from "../../App";
 import { useEffect } from "react";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const Signup = () => {
   const [avatarLoading, setAvatarLoading] = useState(false);
@@ -107,7 +106,7 @@ const Signup = () => {
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
                 {userLoading ? (
-                  <SmallLoading />
+                  <LoadingSM size={24} />
                 ) : (
                   <form
                     className="flex flex-col gap-y-4"
@@ -160,7 +159,7 @@ const Signup = () => {
 
                     {/* avatar upload field */}
                     {avatarLoading ? (
-                      <TinyLoading />
+                      <LoadingSM size={16} />
                     ) : avatar === null ? (
                       <div className="flex items-center justify-center w-full">
                         <label

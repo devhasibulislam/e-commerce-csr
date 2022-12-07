@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../App";
-import LazyLoading from "../../shared/loading/LazyLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 import AccountButton from "./AccountButton";
 
 const AccountMigration = () => {
@@ -84,7 +84,7 @@ const AccountMigration = () => {
           </select>
         </div>
         {loading ? (
-          <LazyLoading />
+          <LoadingSM size={8} />
         ) : (
           <AccountButton value={"Migrate Account"} />
         )}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import TinyLoading from "../../shared/loading/TinyLoading";
 import useSellers from "../../hooks/useSellers";
 import Button from "../Button";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const StoreUpdate = ({ store }) => {
   const [title, setTitle] = useState(store.title);
@@ -84,7 +84,7 @@ const StoreUpdate = ({ store }) => {
 
       {/* store sellers */}
       {usersLoading ? (
-        <TinyLoading />
+        <LoadingSM size={16} />
       ) : (
         <div className="form-control">
           <label className="label">
@@ -128,7 +128,7 @@ const StoreUpdate = ({ store }) => {
         </select>
       </div>
 
-      {loading ? <TinyLoading /> : <Button>Update store</Button>}
+      {loading ? <LoadingSM size={16} /> : <Button>Update store</Button>}
     </form>
   );
 };

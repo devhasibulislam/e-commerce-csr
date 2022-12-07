@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { UserContext } from "../../App";
-import SmallLoading from "../../shared/loading/SmallLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 import AccountButton from "./AccountButton";
 
 const ChangePassword = () => {
@@ -49,7 +49,7 @@ const ChangePassword = () => {
     <section className="grid lg:grid-cols-2 grid-cols-1">
       <>
         {loading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           successfulState === false && (
             <>

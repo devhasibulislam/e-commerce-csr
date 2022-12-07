@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../App";
-import SmallLoading from "../../shared/loading/SmallLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 import AccountButton from "./AccountButton";
 
 const DeleteAccount = () => {
@@ -42,7 +42,7 @@ const DeleteAccount = () => {
     <section className="grid lg:grid-cols-2 grid-cols-1">
       <div className="flex flex-col gap-y-4">
         {loading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           <form onSubmit={handleRemoveAccount}>
             <div className="form-control">

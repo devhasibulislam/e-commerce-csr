@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ManageUsers = () => {
   const [role, setRole] = useState("admin");
@@ -83,7 +83,7 @@ const ManageUsers = () => {
     <>
       <Title>Manage Users</Title>
       {usersLoading ? (
-        <SmallLoading />
+        <LoadingSM size={24} />
       ) : (
         <div className="flex flex-col gap-y-4">
           <div className="tabs tabs-boxed w-fit">

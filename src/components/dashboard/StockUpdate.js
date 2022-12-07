@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import TinyLoading from "../../shared/loading/TinyLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 import Button from "../Button";
 
 const StockUpdate = ({ stock }) => {
@@ -183,10 +183,16 @@ const StockUpdate = ({ stock }) => {
             <option selected={stock.status === "in-stock"} value={"in-stock"}>
               In Stock
             </option>
-            <option selected={stock.status === "out-of-stock"} value={"out-of-stock"}>
+            <option
+              selected={stock.status === "out-of-stock"}
+              value={"out-of-stock"}
+            >
               Out of Stock
             </option>
-            <option selected={stock.status === "discontinued"} value={"discontinued"}>
+            <option
+              selected={stock.status === "discontinued"}
+              value={"discontinued"}
+            >
               Discontinued
             </option>
           </select>
@@ -195,7 +201,7 @@ const StockUpdate = ({ stock }) => {
         {/* stock thumbnails */}
         {thumbnailLoading === true ? (
           <div className="w-full">
-            <TinyLoading />
+            <LoadingSM size={16} />
           </div>
         ) : (
           <div className="form-control">
@@ -238,7 +244,7 @@ const StockUpdate = ({ stock }) => {
           </div>
         )}
 
-        {loading ? <TinyLoading /> : <Button>Update stock</Button>}
+        {loading ? <LoadingSM size={16} /> : <Button>Update stock</Button>}
       </form>
     </>
   );

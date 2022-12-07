@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import SmallLoading from "../../shared/loading/SmallLoading";
 import useProducts from "../../hooks/useProducts";
 import Product from "../cards/Product";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const Wishlist = () => {
   const { products, loading } = useProducts();
@@ -22,7 +22,7 @@ const Wishlist = () => {
   return (
     <>
       {loading ? (
-        <SmallLoading />
+        <LoadingSM size={24} />
       ) : (
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
           {matchedProducts?.length === 0 ? (

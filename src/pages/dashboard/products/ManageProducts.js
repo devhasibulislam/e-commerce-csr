@@ -4,8 +4,8 @@ import Modal from "../../../components/Modal";
 import ProductOverview from "../../../components/dashboard/product/ProductOverview";
 import ProductUpdate from "../../../components/dashboard/product/ProductUpdate";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
 import useProducts from "../../../hooks/useProducts";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ManageProducts = () => {
   const [loading, setLoading] = useState(false);
@@ -50,7 +50,7 @@ const ManageProducts = () => {
       <Title>Manage New Products</Title>
       <div className="overflow-x-auto">
         {productLoading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           <table className="table w-full">
             <thead>

@@ -3,7 +3,7 @@ import PrimaryContainer from "../container/PrimaryContainer";
 import GreyText from "../GreyText";
 import Product from "../cards/Product";
 import useProducts from "../../hooks/useProducts";
-import SmallLoading from "../../shared/loading/SmallLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const Trending = () => {
   const { products, loading } = useProducts();
@@ -384,7 +384,7 @@ const Trending = () => {
           )}
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
             {loading ? (
-              <SmallLoading />
+              <LoadingSM size={24} />
             ) : (
               products?.map((product) => (
                 <Product key={product?._id} product={product} />

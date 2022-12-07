@@ -4,8 +4,8 @@ import CategoryOverview from "../../../components/dashboard/category/CategoryOve
 import CategoryUpdate from "../../../components/dashboard/category/CategoryUpdate";
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
 import useCategories from "../../../hooks/useCategories";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ManageCategories = () => {
   const [loading, setLoading] = useState(false);
@@ -46,7 +46,7 @@ const ManageCategories = () => {
       <Title>Manage Categories</Title>
       <div className="overflow-x-auto">
         {categoryLoading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           <table className="table w-full">
             <thead>

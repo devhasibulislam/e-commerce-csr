@@ -6,8 +6,8 @@ import AccountBanner from "../../components/profile/AccountBanner";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../App";
-import SmallLoading from "../../shared/loading/SmallLoading";
 import { useEffect } from "react";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -73,7 +73,7 @@ const Signin = () => {
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
                 {loading ? (
-                  <SmallLoading />
+                  <LoadingSM size={24} />
                 ) : (
                   <form
                     className="flex flex-col gap-y-4"

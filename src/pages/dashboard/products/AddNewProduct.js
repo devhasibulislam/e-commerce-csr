@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Button from "../../../components/Button";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
-import TinyLoading from "../../../shared/loading/TinyLoading";
 import useBrands from "../../../hooks/useBrands";
 import useCategories from "../../../hooks/useCategories";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const AddNewProduct = () => {
   const [thumbnails, setThumbnails] = useState([]);
@@ -94,7 +93,7 @@ const AddNewProduct = () => {
     <>
       <Title>Add New Product</Title>
       {loading ? (
-        <SmallLoading />
+        <LoadingSM size={24} />
       ) : (
         <form
           className="flex flex-col gap-y-4 w-full lg:w-3/4"
@@ -127,7 +126,7 @@ const AddNewProduct = () => {
 
           {/* product category */}
           {categoryLoading ? (
-            <TinyLoading />
+            <LoadingSM size={16} />
           ) : (
             <div className="form-control">
               <label className="label">
@@ -151,7 +150,7 @@ const AddNewProduct = () => {
 
           {/* product brand */}
           {brandLoading ? (
-            <TinyLoading />
+            <LoadingSM size={16} />
           ) : (
             <div className="form-control">
               <label className="label">
@@ -189,7 +188,7 @@ const AddNewProduct = () => {
           {/* product thumbnails */}
           {thumbnailsLoading === true ? (
             <div className="w-full lg:w-3/4">
-              <TinyLoading />
+              <LoadingSM size={16} />
             </div>
           ) : (
             <div className="form-control">

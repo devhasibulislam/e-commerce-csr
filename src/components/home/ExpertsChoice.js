@@ -5,7 +5,7 @@ import ExpertCard from "../cards/ExpertCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import useProducts from "../../hooks/useProducts";
-import SmallLoading from "../../shared/loading/SmallLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const ExpertsChoice = () => {
   const { products, loading } = useProducts();
@@ -46,7 +46,7 @@ const ExpertsChoice = () => {
         className="py-4 discover_carousel"
       >
         {loading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           products?.map((product) => (
             <ExpertCard key={product?._id} product={product} />

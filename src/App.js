@@ -9,7 +9,7 @@ import Profile from "./pages/profile/Profile";
 import Signin from "./pages/profile/Signin";
 import Signup from "./pages/profile/Signup";
 import useMyself from "./hooks/useMyself";
-import Loading from "./shared/loading/Loading";
+import Loading from "./shared/loading/LoadingXL";
 import RequireAuth from "./components/profile/RequireAuth";
 import MyOrder from "./pages/MyOrder";
 import Analytics from "./pages/dashboard/Analytics";

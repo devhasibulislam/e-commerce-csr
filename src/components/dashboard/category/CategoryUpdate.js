@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import TinyLoading from "../../../shared/loading/TinyLoading";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 import Button from "../../Button";
 
 const CategoryUpdate = ({ category }) => {
@@ -116,7 +116,7 @@ const CategoryUpdate = ({ category }) => {
         {/* category thumbnails */}
         {thumbnailLoading === true ? (
           <div className="w-full">
-            <TinyLoading />
+            <LoadingSM size={16} />
           </div>
         ) : (
           <div className="form-control">
@@ -159,7 +159,7 @@ const CategoryUpdate = ({ category }) => {
           </div>
         )}
 
-        {loading ? <TinyLoading /> : <Button>Update category</Button>}
+        {loading ? <LoadingSM size={16} /> : <Button>Update category</Button>}
       </form>
     </>
   );

@@ -6,7 +6,7 @@ import AccountBanner from "../../components/profile/AccountBanner";
 import AccountButton from "../../components/profile/AccountButton";
 import FormLogo from "../../components/profile/FormLogo";
 import Title from "../../components/Title";
-import SmallLoading from "../../shared/loading/SmallLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const Forgot = () => {
   const [loading, setLoading] = useState(false);
@@ -68,7 +68,7 @@ const Forgot = () => {
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
                 {loading ? (
-                  <SmallLoading />
+                  <LoadingSM size={24} />
                 ) : (
                   <form
                     className="flex flex-col gap-y-4"

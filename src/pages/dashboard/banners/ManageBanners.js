@@ -3,9 +3,8 @@ import { toast } from "react-toastify";
 import BannerUpdate from "../../../components/dashboard/BannerUpdate";
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
-import TinyLoading from "../../../shared/loading/TinyLoading";
 import useBanners from "../../../hooks/useBanners";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ManageBanners = () => {
   const { banners, loading: bannersLoading, refetch } = useBanners();
@@ -40,12 +39,12 @@ const ManageBanners = () => {
     <section>
       <Title>Manage Banners</Title>
       {bannersLoading ? (
-        <SmallLoading />
+        <LoadingSM size={24} />
       ) : (
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
           {banners?.map((banner) =>
             loading ? (
-              <TinyLoading />
+              <LoadingSM size={16} />
             ) : (
               <div key={banner._id} className="card bg-base-100 shadow-xl">
                 <figure>

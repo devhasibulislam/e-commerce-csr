@@ -4,7 +4,7 @@ import GreyText from "../GreyText";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import useBrands from "../../hooks/useBrands";
-import SmallLoading from "../../shared/loading/SmallLoading";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const Department = () => {
   const { brands, loading } = useBrands();
@@ -45,7 +45,7 @@ const Department = () => {
         className="py-4 discover_carousel"
       >
         {loading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           brands?.map((brand) => (
             <div

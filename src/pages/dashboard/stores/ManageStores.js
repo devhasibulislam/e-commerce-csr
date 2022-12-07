@@ -3,8 +3,8 @@ import { toast } from "react-toastify";
 import StoreUpdate from "../../../components/dashboard/StoreUpdate";
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
 import useStores from "../../../hooks/useStores";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ManageStores = () => {
   const [loading, setLoading] = useState(false);
@@ -55,7 +55,7 @@ const ManageStores = () => {
             </tr>
           </thead>
           {storesLoading ? (
-            <SmallLoading />
+            <LoadingSM size={24} />
           ) : (
             <tbody>
               {stores?.map((store) => (

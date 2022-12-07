@@ -2,8 +2,8 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
-import SmallLoading from "../../shared/loading/SmallLoading";
 import useBanners from "../../hooks/useBanners";
+import LoadingSM from "../../shared/loading/LoadingSM";
 
 const Banner = () => {
   const { banners, loading } = useBanners();
@@ -34,7 +34,7 @@ const Banner = () => {
       style={{ backgroundImage: "url(/assets/banner/slider_bg.svg)" }}
     >
       {loading ? (
-        <SmallLoading />
+        <LoadingSM size={24} />
       ) : (
         <div className="container mx-auto">
           <Carousel

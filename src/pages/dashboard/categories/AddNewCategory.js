@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Button from "../../../components/Button";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
-import TinyLoading from "../../../shared/loading/TinyLoading";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const AddNewCategory = () => {
   const [thumbnailsLoading, setThumbnailsLoading] = useState(false);
@@ -74,7 +73,7 @@ const AddNewCategory = () => {
     <>
     <Title>Add New Category</Title>
       {loading ? (
-        <SmallLoading />
+        <LoadingSM size={24} />
       ) : (
         <form
           className="flex flex-col gap-y-4 w-full lg:w-3/4"
@@ -108,7 +107,7 @@ const AddNewCategory = () => {
           {/* category thumbnail */}
           {thumbnailsLoading === true ? (
             <div className="w-full lg:w-3/4">
-              <TinyLoading />
+              <LoadingSM size={16} />
             </div>
           ) : (
             <div className="form-control">

@@ -3,8 +3,8 @@ import { toast } from "react-toastify";
 import StockUpdate from "../../../components/dashboard/StockUpdate";
 import Modal from "../../../components/Modal";
 import Title from "../../../components/Title";
-import SmallLoading from "../../../shared/loading/SmallLoading";
 import useStocks from "../../../hooks/useStocks";
+import LoadingSM from "../../../shared/loading/LoadingSM";
 
 const ManageStocks = () => {
   const { stocks, loading: stocksLoading } = useStocks();
@@ -58,7 +58,7 @@ const ManageStocks = () => {
           </tr>
         </thead>
         {stocksLoading ? (
-          <SmallLoading />
+          <LoadingSM size={24} />
         ) : (
           <tbody>
             {stocks?.map((stock) => (
