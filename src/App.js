@@ -29,6 +29,8 @@ import AddNewBanner from "./pages/dashboard/banners/AddNewBanner";
 import ManageBanners from "./pages/dashboard/banners/ManageBanners";
 import AddNewReview from "./pages/dashboard/reviews/AddNewReview";
 import ManageReviews from "./pages/dashboard/reviews/ManageReviews";
+import AddNewBlog from "./pages/dashboard/blogs/AddNewBlog";
+import ManageBlogs from "./pages/dashboard/blogs/ManageBlogs";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -79,6 +81,8 @@ function App() {
               <Route path="manage-banners" element={<ManageBanners />} />
               <Route path="add-new-review" element={<AddNewReview />} />
               <Route path="manage-reviews" element={<ManageReviews />} />
+              <Route path="add-new-blog" element={<AddNewBlog />} />
+              <Route path="manage-blogs" element={<ManageBlogs />} />
             </Route>
 
             {/* categories */}
