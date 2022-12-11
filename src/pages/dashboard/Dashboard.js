@@ -88,6 +88,16 @@ const Dashboard = () => {
       anchor: "/dashboard/manage-reviews",
       route_for: [""],
     },
+    {
+      title: "Add New Blog",
+      anchor: "/dashboard/add-new-blog",
+      route_for: [""],
+    },
+    {
+      title: "Manage Blogs",
+      anchor: "/dashboard/manage-blogs",
+      route_for: [""],
+    },
   ];
 
   return (
