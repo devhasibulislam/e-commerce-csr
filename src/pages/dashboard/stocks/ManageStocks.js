@@ -44,22 +44,22 @@ const ManageStocks = () => {
   return (
     <>
       <Title>Manage Stocks</Title>
-      <table className="table w-full">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Thumbnail</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Unit</th>
-            <th>Quantity</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        {stocksLoading ? (
-          <LoadingSM size={24} />
-        ) : (
+      {stocksLoading ? (
+        <LoadingSM size={24} />
+      ) : (
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Thumbnail</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Unit</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
           <tbody>
             {stocks?.map((stock) => (
               <tr key={stock._id} className="hover">
@@ -137,8 +137,8 @@ const ManageStocks = () => {
               </tr>
             ))}
           </tbody>
-        )}
-      </table>
+        </table>
+      )}
       {showUpdateModal && (
         <Modal
           showModal={showUpdateModal}

@@ -21,14 +21,17 @@ const AddNewBanner = () => {
     };
 
     const insertNewBanner = async () => {
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/banner`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(bannerInfo),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/banner`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(bannerInfo),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -48,10 +51,13 @@ const AddNewBanner = () => {
 
     const uploadThumbnail = async () => {
       setThumbnailsLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/banner/thumbnail`, {
-        method: "POST",
-        body: formData,
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/banner/thumbnail`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       const response = await request.json();
       if (response?.acknowledgement) {
         setThumbnail({
@@ -73,7 +79,7 @@ const AddNewBanner = () => {
     <section>
       <Title>Add New Banner</Title>
       <form
-        className="flex flex-col gap-y-4 w-full lg:w-3/4"
+        className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 bg-base-100 p-4 rounded-2xl shadow lg:mt-0 md:mt-0 mt-40"
         onSubmit={handleAddNewBanner}
       >
         {/* banner title */}
@@ -85,7 +91,7 @@ const AddNewBanner = () => {
             type="text"
             name="banner"
             placeholder="Min length 5 & Max length 50"
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
@@ -97,7 +103,7 @@ const AddNewBanner = () => {
           <textarea
             name="description"
             placeholder="Min length 10 & Max length 250"
-            className="textarea textarea-bordered w-full lg:w-3/4"
+            className="textarea textarea-bordered w-full"
           />
         </div>
 
@@ -112,20 +118,20 @@ const AddNewBanner = () => {
             placeholder="Enter an https:// URL:"
             pattern="https://.*"
             size={"30"}
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
         {/* banner thumbnail */}
         {thumbnailsLoading === true ? (
-          <div className="w-full lg:w-3/4">
+          <div className="w-full">
             <LoadingSM size={16} />
           </div>
         ) : (
           <div className="form-control">
             {successfulState === true ? (
               <>
-                <div className="alert alert-success shadow-lg w-full lg:w-3/4 rounded-lg">
+                <div className="alert alert-success shadow-lg w-full rounded-lg">
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +160,7 @@ const AddNewBanner = () => {
                 <input
                   type="file"
                   name="thumbnail"
-                  className="file-input file-input-bordered w-full lg:w-3/4"
+                  className="file-input file-input-bordered w-full"
                   onChange={handleBannerThumbnails}
                 />
               </>

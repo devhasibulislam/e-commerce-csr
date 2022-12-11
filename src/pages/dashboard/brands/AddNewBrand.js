@@ -76,7 +76,7 @@ const AddNewBrand = () => {
     <>
       <Title>Add New Brand</Title>
       <form
-        className="flex flex-col gap-y-4 w-full lg:w-3/4"
+        className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 bg-base-100 p-4 rounded-2xl shadow lg:mt-0 md:mt-0 mt-40"
         onSubmit={handleAddNewBrand}
       >
         {/* brand title */}
@@ -88,7 +88,7 @@ const AddNewBrand = () => {
             type="text"
             name="brand"
             placeholder="Min length 5 & Max length 50"
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
@@ -101,7 +101,7 @@ const AddNewBrand = () => {
             type="email"
             name="email"
             placeholder="Provide brand email"
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
@@ -116,7 +116,7 @@ const AddNewBrand = () => {
             placeholder="Enter an https:// URL:"
             pattern="https://.*"
             size={"30"}
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
@@ -128,7 +128,7 @@ const AddNewBrand = () => {
           <textarea
             name="description"
             placeholder="Min length 10 & Max length 250"
-            className="textarea textarea-bordered w-full lg:w-3/4"
+            className="textarea textarea-bordered w-full"
           />
         </div>
 
@@ -141,20 +141,20 @@ const AddNewBrand = () => {
             type="text"
             name="location"
             placeholder="Min length 5 & Max length 50"
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
         {/* brand logo */}
         {thumbnailsLoading === true ? (
-          <div className="w-full lg:w-3/4">
+          <div className="w-full">
             <LoadingSM size={16} />
           </div>
         ) : (
           <div className="form-control">
             {successfulState === true ? (
               <>
-                <div className="alert alert-success shadow-lg w-full lg:w-3/4 rounded-lg">
+                <div className="alert alert-success shadow-lg w-full rounded-lg">
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +181,7 @@ const AddNewBrand = () => {
                 <input
                   type="file"
                   name="logo"
-                  className="file-input file-input-bordered w-full lg:w-3/4"
+                  className="file-input file-input-bordered w-full"
                   onChange={handleBrandLogo}
                 />
               </>

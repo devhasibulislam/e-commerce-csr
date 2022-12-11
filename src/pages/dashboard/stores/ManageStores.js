@@ -20,12 +20,15 @@ const ManageStores = () => {
   function handleRemoveStore(id) {
     setLoading(true);
     const removeProduct = async () => {
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/store/${id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/store/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -42,21 +45,21 @@ const ManageStores = () => {
   return (
     <>
       <Title>Manage Stores</Title>
-      <div className="overflow-x-auto">
-        <table className="table w-full">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Seller</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          {storesLoading ? (
-            <LoadingSM size={24} />
-          ) : (
+      {storesLoading ? (
+        <LoadingSM size={24} />
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Seller</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
             <tbody>
               {stores?.map((store) => (
                 <tr key={store._id} className="hover">
@@ -131,9 +134,9 @@ const ManageStores = () => {
                 </tr>
               ))}
             </tbody>
-          )}
-        </table>
-      </div>
+          </table>
+        </div>
+      )}
       {showUpdateModal && (
         <Modal
           showModal={showUpdateModal}

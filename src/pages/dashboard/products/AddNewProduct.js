@@ -96,7 +96,7 @@ const AddNewProduct = () => {
         <LoadingSM size={24} />
       ) : (
         <form
-          className="flex flex-col gap-y-4 w-full lg:w-3/4"
+          className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 bg-base-100 p-4 rounded-2xl shadow lg:mt-0 md:mt-0 mt-40"
           onSubmit={handleAddNewProduct}
         >
           {/* product title */}
@@ -108,7 +108,7 @@ const AddNewProduct = () => {
               type="text"
               name="product"
               placeholder="Min length 5 & Max length 50"
-              className="input input-bordered w-full lg:w-3/4"
+              className="input input-bordered w-full"
             />
           </div>
 
@@ -120,7 +120,7 @@ const AddNewProduct = () => {
             <textarea
               name="description"
               placeholder="Min length 10 & Max length 500"
-              className="textarea textarea-bordered w-full lg:w-3/4"
+              className="textarea textarea-bordered w-full"
             />
           </div>
 
@@ -133,7 +133,7 @@ const AddNewProduct = () => {
                 <span className="label-text">Pick the product's category</span>
               </label>
               <select
-                className="select select-bordered w-full lg:w-3/4"
+                className="select select-bordered w-full"
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <option disabled selected>
@@ -157,7 +157,7 @@ const AddNewProduct = () => {
                 <span className="label-text">Pick the product's brand</span>
               </label>
               <select
-                className="select select-bordered w-full lg:w-3/4"
+                className="select select-bordered w-full"
                 onChange={(e) => setBrand(e.target.value)}
               >
                 <option disabled selected>
@@ -181,20 +181,20 @@ const AddNewProduct = () => {
               type="number"
               name="price"
               placeholder="Won't be less than 5"
-              className="input input-bordered w-full lg:w-3/4"
+              className="input input-bordered w-full"
             />
           </div>
 
           {/* product thumbnails */}
           {thumbnailsLoading === true ? (
-            <div className="w-full lg:w-3/4">
+            <div className="w-full">
               <LoadingSM size={16} />
             </div>
           ) : (
             <div className="form-control">
               {successfulState === true ? (
                 <>
-                  <div className="alert alert-success shadow-lg w-full lg:w-3/4 rounded-lg">
+                  <div className="alert alert-success shadow-lg w-full rounded-lg">
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -225,7 +225,7 @@ const AddNewProduct = () => {
                     type="file"
                     name="thumbnails"
                     multiple
-                    className="file-input file-input-bordered w-full lg:w-3/4"
+                    className="file-input file-input-bordered w-full"
                     onChange={handleProductThumbnails}
                   />
                 </>

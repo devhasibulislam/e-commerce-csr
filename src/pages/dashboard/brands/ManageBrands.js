@@ -22,12 +22,15 @@ const ManageBrands = () => {
   function handleRemoveBrand(id) {
     setLoading(true);
     const removeProduct = async () => {
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/brand/${id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/brand/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -44,10 +47,10 @@ const ManageBrands = () => {
   return (
     <>
       <Title>Manage Brands</Title>
-      <div className="overflow-x-auto">
-        {brandLoading ? (
-          <LoadingSM size={24} />
-        ) : (
+      {brandLoading ? (
+        <LoadingSM size={24} />
+      ) : (
+        <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>
               <tr>
@@ -63,9 +66,7 @@ const ManageBrands = () => {
             <tbody>
               {brands?.map((brand) => (
                 <tr key={brand._id} className="hover">
-                  <th title={brand._id}>
-                    {brand._id.slice(0, 5) + "..."}
-                  </th>
+                  <th title={brand._id}>{brand._id.slice(0, 5) + "..."}</th>
                   <td>
                     <img
                       src={brand.logo.url}
@@ -161,8 +162,8 @@ const ManageBrands = () => {
               ))}
             </tbody>
           </table>
-        )}
-      </div>
+        </div>
+      )}
       {showOverviewModal && (
         <Modal
           showModal={showOverviewModal}

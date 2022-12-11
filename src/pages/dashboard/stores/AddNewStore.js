@@ -48,7 +48,7 @@ const AddNewStore = () => {
     <>
       <Title>Add New Store</Title>
       <form
-        className="flex flex-col gap-y-4 w-full lg:w-3/4"
+        className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 bg-base-100 p-4 rounded-2xl shadow lg:mt-0 md:mt-0 mt-40"
         onSubmit={handleAddNewStore}
       >
         {/* Store title */}
@@ -60,7 +60,7 @@ const AddNewStore = () => {
             type="text"
             name="store"
             placeholder="Min length 5 & Max length 50"
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
@@ -72,13 +72,13 @@ const AddNewStore = () => {
           <textarea
             name="description"
             placeholder="Min length 10 & Max length 250"
-            className="textarea textarea-bordered w-full lg:w-3/4"
+            className="textarea textarea-bordered w-full"
           />
         </div>
 
         {/* sellers box */}
         {sellers?.length === 0 ? (
-          <div className="alert alert-info shadow-lg w-full lg:w-3/4">
+          <div className="alert alert-info shadow-lg w-full">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +104,7 @@ const AddNewStore = () => {
               <span className="label-text">Pick the seller</span>
             </label>
             <select
-              className="select select-bordered w-full lg:w-3/4"
+              className="select select-bordered w-full"
               onChange={(e) =>
                 setSeller((seller) => [...seller, e.target.value])
               }
@@ -131,7 +131,7 @@ const AddNewStore = () => {
           </div>
         )}
 
-        {loading ? <LoadingSM size={24} /> : <Button>Add new store</Button>}
+        {loading ? <LoadingSM size={16} /> : <Button>Add store</Button>}
       </form>
     </>
   );

@@ -131,7 +131,7 @@ const BlogUpdate = ({ blog, refetch }) => {
         {/* stock thumbnails */}
         {thumbnailLoading === true ? (
           <div className="w-full">
-            <LoadingSM size={16} />
+            <LoadingSM size={8} />
           </div>
         ) : (
           <div className="form-control">
@@ -174,7 +174,7 @@ const BlogUpdate = ({ blog, refetch }) => {
           </div>
         )}
 
-        {loading ? <LoadingSM size={16} /> : <Button>Update blog</Button>}
+        {loading ? <LoadingSM size={8} /> : <Button>Update blog</Button>}
       </form>
     </>
   );

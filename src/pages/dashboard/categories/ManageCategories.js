@@ -22,12 +22,15 @@ const ManageCategories = () => {
   function handleRemoveCategory(id) {
     setLoading(true);
     const removeProduct = async () => {
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/category/${id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/category/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -44,10 +47,10 @@ const ManageCategories = () => {
   return (
     <>
       <Title>Manage Categories</Title>
-      <div className="overflow-x-auto">
-        {categoryLoading ? (
-          <LoadingSM size={24} />
-        ) : (
+      {categoryLoading ? (
+        <LoadingSM size={24} />
+      ) : (
+        <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>
               <tr>
@@ -155,8 +158,8 @@ const ManageCategories = () => {
               ))}
             </tbody>
           </table>
-        )}
-      </div>
+        </div>
+      )}
       {showOverviewModal && (
         <Modal
           showModal={showOverviewModal}

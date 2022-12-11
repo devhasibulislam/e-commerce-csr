@@ -26,12 +26,15 @@ const ManageProducts = () => {
   function handleRemoveProduct(id) {
     setLoading(true);
     const removeProduct = async () => {
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/product/${id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/product/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success(response.description);
@@ -48,10 +51,10 @@ const ManageProducts = () => {
   return (
     <>
       <Title>Manage New Products</Title>
-      <div className="overflow-x-auto">
-        {productLoading ? (
-          <LoadingSM size={24} />
-        ) : (
+      {productLoading ? (
+        <LoadingSM size={24} />
+      ) : (
+        <div className="overflow-auto">
           <table className="table w-full">
             <thead>
               <tr>
@@ -67,7 +70,7 @@ const ManageProducts = () => {
             <tbody>
               {products?.map((product) => (
                 <tr key={product._id} className="hover">
-                  <th title={product._id}>{product._id.slice(0, 5) + "..."}</th>
+                  <td title={product._id}>{product._id.slice(0, 5) + "..."}</td>
                   <td>
                     <img
                       src={
@@ -166,8 +169,8 @@ const ManageProducts = () => {
               ))}
             </tbody>
           </table>
-        )}
-      </div>
+        </div>
+      )}
       {showOverviewModal && (
         <Modal
           showModal={showOverviewModal}

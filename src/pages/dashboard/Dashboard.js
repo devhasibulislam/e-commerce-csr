@@ -105,9 +105,9 @@ const Dashboard = () => {
       <Title>Dashboard</Title>
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content">
+        <div className="drawer-content flex flex-col items-center justify-center bg-indigo-100">
           {/* dashboard navbar */}
-          <div className="w-full navbar fixed bg-white shadow lg:hidden">
+          <div className="w-full navbar fixed top-0 left-0 bg-white shadow lg:hidden">
             <div className="flex-none lg:hidden">
               <label htmlFor="my-drawer-2" className="btn btn-square btn-ghost">
                 <svg

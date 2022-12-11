@@ -45,7 +45,7 @@ const AddNewReview = () => {
     <section>
       <Title>Add New Review</Title>
       <form
-        className="flex flex-col gap-y-4 w-full lg:w-3/4"
+        className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 bg-base-100 p-4 rounded-2xl shadow lg:mt-0 md:mt-0 mt-40"
         onSubmit={handleAddNewReview}
       >
         {/* reviewer name */}
@@ -58,7 +58,7 @@ const AddNewReview = () => {
             name="review"
             value={user.name}
             readOnly
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
@@ -71,7 +71,7 @@ const AddNewReview = () => {
             type="text"
             name="designation"
             placeholder="Enter your designation"
-            className="input input-bordered w-full lg:w-3/4"
+            className="input input-bordered w-full"
           />
         </div>
 
@@ -83,7 +83,7 @@ const AddNewReview = () => {
           <textarea
             name="description"
             placeholder="Min length 10 & Min length 50"
-            className="textarea textarea-bordered w-full lg:w-3/4"
+            className="textarea textarea-bordered w-full"
           />
         </div>
 
