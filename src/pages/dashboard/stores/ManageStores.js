@@ -142,7 +142,7 @@ const ManageStores = () => {
           showModal={showUpdateModal}
           setShowModal={setShowUpdateModal}
           modalHeader={"Store Update"}
-          content={<StoreUpdate store={store} />}
+          content={<StoreUpdate store={store} refetch={refetch} />}
         />
       )}
     </>

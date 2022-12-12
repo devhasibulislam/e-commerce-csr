@@ -177,7 +177,7 @@ const ManageBrands = () => {
           showModal={showUpdateModal}
           setShowModal={setShowUpdateModal}
           modalHeader={"Brand Update"}
-          content={<BrandUpdate brand={brand} />}
+          content={<BrandUpdate brand={brand} refetch={refetch} />}
         />
       )}
     </>

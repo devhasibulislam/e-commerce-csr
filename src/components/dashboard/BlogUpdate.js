@@ -4,10 +4,12 @@ import LoadingSM from "../../shared/loading/LoadingSM";
 import Button from "../Button";
 
 const BlogUpdate = ({ blog, refetch }) => {
-  const [name, setName] = useState(blog?.name);
-  const [title, setTitle] = useState(blog?.title);
-  const [description, setDescription] = useState(blog?.description);
-  const [thumbnail, setThumbnail] = useState(blog.thumbnail);
+  const [blogInfo, setBlogInfo] = useState({
+    name: blog?.name,
+    title: blog?.title,
+    description: blog?.description,
+    thumbnail: blog?.thumbnail,
+  });
   const [thumbnailLoading, setThumbnailLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successfulState, setSuccessfulState] = useState(false);
@@ -15,11 +17,11 @@ const BlogUpdate = ({ blog, refetch }) => {
   function handleUpdateBlog(event) {
     event.preventDefault();
 
-    const blogInfo = {
-      name: name,
-      title: title,
-      description: description,
-      thumbnail: thumbnail,
+    const blogInformation = {
+      name: blogInfo?.name,
+      title: blogInfo?.title,
+      description: blogInfo?.description,
+      thumbnail: blogInfo?.thumbnail,
     };
 
     const updateBlog = async () => {
@@ -32,7 +34,7 @@ const BlogUpdate = ({ blog, refetch }) => {
             "content-type": "application/json",
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
-          body: JSON.stringify(blogInfo),
+          body: JSON.stringify(blogInformation),
         }
       );
       const response = await request.json();
@@ -67,9 +69,12 @@ const BlogUpdate = ({ blog, refetch }) => {
         toast.success(response.description);
         setSuccessfulState(true);
         setThumbnailLoading(false);
-        setThumbnail({
-          url: response.data.path,
-          public_id: response.data.filename,
+        setBlogInfo({
+          ...blogInfo,
+          thumbnail: {
+            url: response.data.path,
+            public_id: response.data.filename,
+          },
         });
       } else {
         toast.error(response.description);
@@ -93,8 +98,8 @@ const BlogUpdate = ({ blog, refetch }) => {
           <input
             type="text"
             name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={blogInfo?.name}
+            onChange={(e) => setBlogInfo({ ...blogInfo, name: e.target.value })}
             className="input input-bordered w-full"
           />
         </div>
@@ -107,8 +112,10 @@ const BlogUpdate = ({ blog, refetch }) => {
           <input
             type="text"
             name="blog"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={blogInfo?.title}
+            onChange={(e) =>
+              setBlogInfo({ ...blogInfo, title: e.target.value })
+            }
             className="input input-bordered w-full"
           />
         </div>
@@ -117,13 +124,15 @@ const BlogUpdate = ({ blog, refetch }) => {
         <div className="form-control">
           <label className="label">
             <span className="label-text">
-              Blog Description: {description.length} {"<="} 500
+              Blog Description: {blogInfo?.description?.length} {"<="} 500
             </span>
           </label>
           <textarea
             name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={blogInfo?.description}
+            onChange={(e) =>
+              setBlogInfo({ ...blogInfo, description: e.target.value })
+            }
             className="textarea textarea-bordered w-full"
           />
         </div>

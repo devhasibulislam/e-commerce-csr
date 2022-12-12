@@ -63,7 +63,7 @@ const ManageBlogs = () => {
                     {blog.name}
                   </p>
                   <h2 className="card-title">{blog.title}</h2>
-                  <p className="text-gray-500 h-20 overflow-hidden" title={blog.description}>{blog.description}</p>
+                  <p className="text-gray-500 h-20 overflow-x-hidden overflow-y-scroll" title={blog.description}>{blog.description}</p>
                   <div className="flex justify-between items-center">
                     <div className="flex gap-x-2">
                       <button

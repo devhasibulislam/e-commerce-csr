@@ -4,10 +4,12 @@ import LoadingSM from "../../shared/loading/LoadingSM";
 import Button from "../Button";
 
 const BannerUpdate = ({ banner, refetch }) => {
-  const [title, setTitle] = useState(banner?.title);
-  const [description, setDescription] = useState(banner?.description);
-  const [url, setURL] = useState(banner?.url);
-  const [thumbnail, setThumbnail] = useState(banner.thumbnail);
+  const [bannerInfo, setBannerInfo] = useState({
+    title: banner?.title,
+    description: banner?.description,
+    url: banner?.url,
+    thumbnail: banner?.thumbnail,
+  });
   const [thumbnailLoading, setThumbnailLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successfulState, setSuccessfulState] = useState(false);
@@ -15,11 +17,11 @@ const BannerUpdate = ({ banner, refetch }) => {
   function handleUpdateBanner(event) {
     event.preventDefault();
 
-    const bannerInfo = {
-      title: title,
-      description: description,
-      url: url,
-      thumbnail: thumbnail,
+    const bannerInformation = {
+      title: bannerInfo?.title,
+      description: bannerInfo?.description,
+      url: bannerInfo?.url,
+      thumbnail: bannerInfo?.thumbnail,
     };
 
     const updateBanner = async () => {
@@ -32,7 +34,7 @@ const BannerUpdate = ({ banner, refetch }) => {
             "content-type": "application/json",
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
-          body: JSON.stringify(bannerInfo),
+          body: JSON.stringify(bannerInformation),
         }
       );
       const response = await request.json();
@@ -67,9 +69,12 @@ const BannerUpdate = ({ banner, refetch }) => {
         toast.success(response.description);
         setSuccessfulState(true);
         setThumbnailLoading(false);
-        setThumbnail({
-          url: response.data.path,
-          public_id: response.data.filename,
+        setBannerInfo({
+          ...bannerInfo,
+          thumbnail: {
+            url: response.data.path,
+            public_id: response.data.filename,
+          },
         });
       } else {
         toast.error(response.description);
@@ -93,8 +98,10 @@ const BannerUpdate = ({ banner, refetch }) => {
           <input
             type="text"
             name="banner"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={bannerInfo?.title}
+            onChange={(e) =>
+              setBannerInfo({ ...bannerInfo, title: e.target.value })
+            }
             className="input input-bordered w-full"
           />
         </div>
@@ -103,13 +110,15 @@ const BannerUpdate = ({ banner, refetch }) => {
         <div className="form-control">
           <label className="label">
             <span className="label-text">
-              Banner Description: {description.length} {"<="} 500
+              Banner Description: {bannerInfo?.description?.length} {"<="} 500
             </span>
           </label>
           <textarea
             name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={bannerInfo?.description}
+            onChange={(e) =>
+              setBannerInfo({ ...bannerInfo, description: e.target.value })
+            }
             className="textarea textarea-bordered w-full"
           />
         </div>
@@ -122,8 +131,10 @@ const BannerUpdate = ({ banner, refetch }) => {
           <input
             type="url"
             name="url"
-            value={url}
-            onChange={(e) => setURL(e.target.value)}
+            value={bannerInfo?.url}
+            onChange={(e) =>
+              setBannerInfo({ ...bannerInfo, url: e.target.value })
+            }
             pattern="https://.*"
             size={"30"}
             className="input input-bordered w-full"
@@ -176,7 +187,7 @@ const BannerUpdate = ({ banner, refetch }) => {
           </div>
         )}
 
-        {loading ? <LoadingSM size={16} /> : <Button>Update banner</Button>}
+        {loading ? <LoadingSM size={8} /> : <Button>Update banner</Button>}
       </form>
     </>
   );

@@ -3,29 +3,32 @@ import { toast } from "react-toastify";
 import LoadingSM from "../../../shared/loading/LoadingSM";
 import Button from "../../Button";
 
-const BrandUpdate = ({ brand }) => {
-  const [title, setTitle] = useState(brand?.title);
-  const [email, setEmail] = useState(brand?.email);
-  const [website, setWebsite] = useState(brand?.website);
-  const [location, setLocation] = useState(brand?.location);
-  const [status, setStatus] = useState(brand?.status);
-  const [description, setDescription] = useState(brand?.description);
-  const [logo, setLogo] = useState(brand.logo);
+const BrandUpdate = ({ brand, refetch }) => {
   const [thumbnailLoading, setThumbnailLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successfulState, setSuccessfulState] = useState(false);
 
+  const [brandInfo, setBrandInfo] = useState({
+    title: brand?.title,
+    email: brand?.email,
+    website: brand?.website,
+    description: brand?.description,
+    logo: brand?.logo,
+    location: brand?.location,
+    status: brand?.status,
+  });
+
   function handleUpdateBrand(event) {
     event.preventDefault();
 
-    const categoryInfo = {
-      title: title,
-      email: email,
-      website: website,
-      description: description,
-      logo: logo,
-      location: location,
-      status: status,
+    const brandInformation = {
+      title: brandInfo?.title,
+      email: brandInfo?.email,
+      website: brandInfo?.website,
+      description: brandInfo?.description,
+      location: brandInfo?.location,
+      logo: brandInfo?.logo,
+      status: brandInfo?.status,
     };
 
     const updateCategory = async () => {
@@ -38,14 +41,14 @@ const BrandUpdate = ({ brand }) => {
             "content-type": "application/json",
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
-          body: JSON.stringify(categoryInfo),
+          body: JSON.stringify(brandInformation),
         }
       );
       const response = await request.json();
       if (response) {
         setLoading(false);
         toast.success(response.description);
-        event.target.reset();
+        refetch();
       } else {
         toast.error(response.description);
         setLoading(false);
@@ -72,9 +75,12 @@ const BrandUpdate = ({ brand }) => {
         toast.success(response.description);
         setSuccessfulState(true);
         setThumbnailLoading(false);
-        setLogo({
-          url: response.data.path,
-          public_id: response.data.filename,
+        setBrandInfo({
+          ...brandInfo,
+          logo: {
+            url: response.data.path,
+            public_id: response.data.filename,
+          },
         });
       } else {
         toast.error(response.description);
@@ -98,8 +104,10 @@ const BrandUpdate = ({ brand }) => {
           <input
             type="text"
             name="brand"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={brandInfo?.title}
+            onChange={(e) =>
+              setBrandInfo({ ...brandInfo, title: e.target.value })
+            }
             className="input input-bordered w-full"
           />
         </div>
@@ -112,8 +120,10 @@ const BrandUpdate = ({ brand }) => {
           <input
             type="email"
             name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={brandInfo?.email}
+            onChange={(e) =>
+              setBrandInfo({ ...brandInfo, email: e.target.value })
+            }
             className="input input-bordered w-full"
           />
         </div>
@@ -126,8 +136,10 @@ const BrandUpdate = ({ brand }) => {
           <input
             type="url"
             name="url"
-            value={website}
-            onChange={(e) => setWebsite(e.target.value)}
+            value={brandInfo?.website}
+            onChange={(e) =>
+              setBrandInfo({ ...brandInfo, website: e.target.value })
+            }
             pattern="https://.*"
             size={"30"}
             className="input input-bordered w-full"
@@ -141,8 +153,10 @@ const BrandUpdate = ({ brand }) => {
           </label>
           <textarea
             name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={brandInfo?.description}
+            onChange={(e) =>
+              setBrandInfo({ ...brandInfo, description: e.target.value })
+            }
             className="textarea textarea-bordered w-full"
           />
         </div>
@@ -155,8 +169,10 @@ const BrandUpdate = ({ brand }) => {
           <input
             type="text"
             name="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            value={brandInfo?.location}
+            onChange={(e) =>
+              setBrandInfo({ ...brandInfo, location: e.target.value })
+            }
             className="input input-bordered w-full"
           />
         </div>
@@ -164,7 +180,7 @@ const BrandUpdate = ({ brand }) => {
         {/* category thumbnails */}
         {thumbnailLoading === true ? (
           <div className="w-full">
-            <LoadingSM size={16} />
+            <LoadingSM size={8} />
           </div>
         ) : (
           <div className="form-control">
@@ -214,18 +230,23 @@ const BrandUpdate = ({ brand }) => {
           </label>
           <select
             className="select select-bordered w-full"
-            onChange={(e) => setStatus(e.target.value)}
+            onChange={(e) =>
+              setBrandInfo({ ...brandInfo, status: e.target.value })
+            }
           >
-            <option value={"active"} selected={brand.status === "active"}>
+            <option value={"active"} selected={brandInfo?.status === "active"}>
               Active
             </option>
-            <option value={"inactive"} selected={brand.status === "inactive"}>
+            <option
+              value={"inactive"}
+              selected={brandInfo?.status === "inactive"}
+            >
               Inactive
             </option>
           </select>
         </div>
 
-        {loading ? <LoadingSM size={16} /> : <Button>Update category</Button>}
+        {loading ? <LoadingSM size={8} /> : <Button>Update category</Button>}
       </form>
     </section>
   );
