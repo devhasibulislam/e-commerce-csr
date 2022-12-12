@@ -54,7 +54,10 @@ const StoreUpdate = ({ store }) => {
   }, [store?.sellers]);
 
   return (
-    <form className="flex flex-col gap-y-4 w-full" onSubmit={handleUpdateStore}>
+    <form
+      className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 bg-base-100 p-4 rounded-2xl shadow lg:mt-0 md:mt-0 mt-40"
+      onSubmit={handleUpdateStore}
+    >
       {/* store title */}
       <div className="form-control">
         <label className="label">

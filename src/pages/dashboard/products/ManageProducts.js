@@ -82,7 +82,7 @@ const ManageProducts = () => {
                       className="h-8 w-8 object-cover"
                     />
                   </td>
-                  <td>{product.title}</td>
+                  <td className="whitespace-normal">{product.title}</td>
                   <td>{product.price}</td>
                   <td className="capitalize">{product.category.title}</td>
                   <td>{product.brand.title}</td>

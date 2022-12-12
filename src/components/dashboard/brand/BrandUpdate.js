@@ -30,14 +30,17 @@ const BrandUpdate = ({ brand }) => {
 
     const updateCategory = async () => {
       setLoading(true);
-      const request = await fetch(`https://e-commerce-ssr.onrender.com/brand/${brand._id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(categoryInfo),
-      });
+      const request = await fetch(
+        `https://e-commerce-ssr.onrender.com/brand/${brand._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(categoryInfo),
+        }
+      );
       const response = await request.json();
       if (response) {
         setLoading(false);
@@ -84,7 +87,7 @@ const BrandUpdate = ({ brand }) => {
   return (
     <section>
       <form
-        className="flex flex-col gap-y-4 w-full"
+        className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 bg-base-100 p-4 rounded-2xl shadow lg:mt-0 md:mt-0 mt-40"
         onSubmit={handleUpdateBrand}
       >
         {/* brand title */}

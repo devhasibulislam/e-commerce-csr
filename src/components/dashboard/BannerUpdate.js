@@ -82,7 +82,7 @@ const BannerUpdate = ({ banner, refetch }) => {
   return (
     <>
       <form
-        className="flex flex-col gap-y-4 w-full"
+        className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 bg-base-100 p-4 rounded-2xl shadow lg:mt-0 md:mt-0 mt-40"
         onSubmit={handleUpdateBanner}
       >
         {/* banner title */}
